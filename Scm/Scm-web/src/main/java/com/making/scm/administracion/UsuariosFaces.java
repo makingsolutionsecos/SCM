@@ -4,10 +4,7 @@
  */
 package com.making.scm.administracion;
 
-/**
- *
- * @author Jimmy
- */
+
 public class UsuariosFaces {
     
 }

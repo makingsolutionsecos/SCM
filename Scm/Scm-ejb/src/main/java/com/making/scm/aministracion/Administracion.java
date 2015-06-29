@@ -4,10 +4,7 @@
  */
 package com.making.scm.aministracion;
 
-/**
- *
- * @author Jimmy
- */
+
 public class Administracion {
     
 }
