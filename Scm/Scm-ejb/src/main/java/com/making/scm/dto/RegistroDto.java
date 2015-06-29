@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author jorgealfonsobeltran
  */
-public class RegistroDto {
+public class RegistroDto extends Dto{
     
     /**
      * Identificador unico del registro

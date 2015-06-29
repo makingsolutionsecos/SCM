@@ -9,6 +9,6 @@ package com.making.scm.dto;
  *
  * @author camilomarroquin
  */
-public class RespuestaDto extends Dto{
+public class Dto {
     
 }

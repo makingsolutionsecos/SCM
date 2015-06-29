@@ -5,7 +5,7 @@ package com.making.scm.dto;
  *
  * @author John Dany osorio Ramos
  */
-public class RolDto {
+public class RolDto extends Dto{
 
     /**
      * Identificador único para el rol.

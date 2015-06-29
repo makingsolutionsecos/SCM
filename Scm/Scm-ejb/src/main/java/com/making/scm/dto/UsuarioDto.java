@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author camilomarroquin
  */
-public class UsuarioDto {
+public class UsuarioDto extends Dto{
 
     /**
      * Obtiene o establece el identificador único del usuario del sistema.
