@@ -1,27 +1,56 @@
 package com.making.scm.bl;
 
+import com.making.scm.dto.UsuarioDto;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Clase que interactúa con la administración de usuarios del sistema (Doctores y pacientes).
+ * Clase que interactúa con la administración de usuarios del sistema (Doctores
+ * y pacientes).
+ *
  * @author Jimmy
  */
 public class AdministracionCuenta {
-    
-    public int InsertarUsuario()
-    {
+
+    /**
+     * Método para insertar un usuario en el sistema.
+     * @param usuario a insertar
+     * @return cantidad de registros insertados.
+     */
+    public int insertarUsuario(UsuarioDto usuario) {
         return 0;
     }
-//    
-//    public UsuarioDto ObtenerUsuario()
-//    {
-//    }
-   
-//    public List<UsuarioDto> ObtenerUsuarios()
-//    {
-//    }
-    
-//      public int ActualizarUsuario(UsuarioDto)
-//      {
-//          retun 0;
-//      }   
-    
+
+    /**
+     * Método para obtener un usuario por identificación.
+     * @param identificacion del usuario para realizaer el filtro.
+     * @return 
+     */
+    public UsuarioDto obtenerUsuarioPorIdentificacion(String identificacion) {
+        UsuarioDto usuario = null;
+
+        return usuario;
+    }
+
+    /**
+     * Método para obtener un usuario por correo.
+     * @param correoElectroncio para ejecutar el filtro de usuarios.
+     * @return 
+     */
+    public UsuarioDto obtenerUsuarioPorCorreo(String correoElectroncio) {
+        UsuarioDto usuario = null;
+
+        return usuario;
+    }
+
+    public List<UsuarioDto> obtenerUsuarios() {
+        List<UsuarioDto> usuarios = new ArrayList<UsuarioDto>();
+
+        return usuarios;
+    }
+
+    public int actualizarUsuario(UsuarioDto usuario) {
+        return 0;
+    }
+
 }
