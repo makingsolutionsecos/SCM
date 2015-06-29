@@ -1,5 +1,6 @@
 package com.making.scm.dto;
 
+import com.making.scm.enumeration.Sexo;
 import java.util.Date;
 
 /**

@@ -1,4 +1,4 @@
-package com.making.scm.dto;
+package com.making.scm.enumeration;
 
 /**
  * Clase relacionado con el sexo de una persona.
