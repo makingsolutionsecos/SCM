@@ -45,7 +45,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo"),
     @NamedQuery(name = "Usuario.findByContrasena", query = "SELECT u FROM Usuario u WHERE u.contrasena = :contrasena"),
     @NamedQuery(name = "Usuario.findByIdCloud", query = "SELECT u FROM Usuario u WHERE u.idCloud = :idCloud")})
-public class Usuario implements Serializable {
+public class Usuario extends EntityObject implements Serializable  {
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull

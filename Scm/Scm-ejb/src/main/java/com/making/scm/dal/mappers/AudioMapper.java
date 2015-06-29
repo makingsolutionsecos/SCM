@@ -12,7 +12,7 @@ import com.making.scm.persistence.EntityObject;
  *
  * @author Camilo Marroquin
  */
-public class RegistroMapper implements IMapper {
+public class AudioMapper implements IMapper {
 
     @Override
     public Dto entityToDto(EntityObject entityObject) {

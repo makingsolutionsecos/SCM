@@ -12,7 +12,18 @@ import com.making.scm.dto.Dto;
  * @author Camilo Marroquin
  */
 public interface IMapper {    
-    public void entityToDto(Dto dto);
+
+    /**
+     *
+     * @param entityObject
+     * @param dto
+     * @return
+     */
+    public Dto entityToDto(Object entityObject);
     
-    public void dtoToEntity(Object dto);
+    /**
+     *
+     * @param dto
+     */
+    public void dtoToEntity(Dto dto);
 }

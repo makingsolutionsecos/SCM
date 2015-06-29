@@ -6,21 +6,27 @@
 package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
+import com.making.scm.dto.UsuarioDto;
+import com.making.scm.persistence.EntityObject;
+import com.making.scm.persistence.Usuario;
 
 /**
  *
  * @author Camilo Marroquin
  */
-public class UsuarioMapper implements IMapper{
+public class UsuarioMapper implements IMapper {
 
     @Override
-    public void entityToDto(Dto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Dto entityToDto(EntityObject entityObject) {
+        Usuario entity = (Usuario) entityObject;
+
+        UsuarioDto usuarioDto = new UsuarioDto();
+
+        return usuarioDto;
     }
 
     @Override
-    public void dtoToEntity(Object dto) {
+    public EntityObject dtoToEntity(Dto dto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

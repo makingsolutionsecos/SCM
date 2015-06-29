@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Respuesta.findByIdRespuesta", query = "SELECT r FROM Respuesta r WHERE r.idRespuesta = :idRespuesta"),
     @NamedQuery(name = "Respuesta.findByIdPregunta", query = "SELECT r FROM Respuesta r WHERE r.idPregunta = :idPregunta"),
     @NamedQuery(name = "Respuesta.findByRespuesta", query = "SELECT r FROM Respuesta r WHERE r.respuesta = :respuesta")})
-public class Respuesta implements Serializable {
+public class Respuesta extends EntityObject implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id

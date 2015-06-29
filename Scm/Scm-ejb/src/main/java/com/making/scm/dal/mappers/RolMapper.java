@@ -6,21 +6,22 @@
 package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
+import com.making.scm.persistence.EntityObject;
 
 /**
  *
  * @author Camilo Marroquin
  */
-public class RolMapper implements IMapper{
+public class RolMapper implements IMapper {
 
     @Override
-    public void entityToDto(Dto dto) {
+    public Dto entityToDto(EntityObject entityObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void dtoToEntity(Object dto) {
+    public EntityObject dtoToEntity(Dto dto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

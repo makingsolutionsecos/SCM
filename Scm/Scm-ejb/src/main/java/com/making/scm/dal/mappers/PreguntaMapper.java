@@ -12,15 +12,13 @@ import com.making.scm.dto.Dto;
  * @author Camilo Marroquin
  */
 public class PreguntaMapper implements IMapper{
-
     @Override
-    public void entityToDto(Dto dto) {
+    public Dto entityToDto(Object entityObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void dtoToEntity(Object dto) {
+    public void dtoToEntity(Dto dto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }   
 }
