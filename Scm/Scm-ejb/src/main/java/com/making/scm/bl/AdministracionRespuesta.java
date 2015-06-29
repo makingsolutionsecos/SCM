@@ -5,6 +5,7 @@
  */
 package com.making.scm.bl;
 
+import com.making.scm.dto.PreguntaDto;
 import com.making.scm.dto.RespuestaDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class AdministracionRespuesta {
         return respuesta;
     }
     
-    public List<RespuestaDto> obtenerRespuestasPorPregunta(){
+    public List<RespuestaDto> obtenerRespuestasPorPregunta(PreguntaDto pregunta){
         List<RespuestaDto> listaPreguntas = new ArrayList<RespuestaDto>();
         return listaPreguntas;
     }
