@@ -12,44 +12,30 @@ public class RegistroDto extends Dto{
     /**
      * Identificador unico del registro
      */
-    private int Id;
-    
-    /**
-     * Identificador del usuario que realizá el registro
-     */
-    private int IdUsuario;
+    private int id;
     
     /**
      * Fecha en la que se realiza el registro 
      */
     private Date fecha;
+    
+    /**
+     * Identificador del usuario que realizá el registro
+     */
+    private UsuarioDto usuario;
 
     /**
-     * @return the Id
+     * @return the id
      */
     public int getId() {
-        return Id;
+        return id;
     }
 
     /**
-     * @param Id the Id to set
+     * @param id the id to set
      */
-    public void setId(int Id) {
-        this.Id = Id;
-    }
-
-    /**
-     * @return the IdUsuario
-     */
-    public int getIdUsuario() {
-        return IdUsuario;
-    }
-
-    /**
-     * @param IdUsuario the IdUsuario to set
-     */
-    public void setIdUsuario(int IdUsuario) {
-        this.IdUsuario = IdUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -64,6 +50,20 @@ public class RegistroDto extends Dto{
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return the usuario
+     */
+    public UsuarioDto getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(UsuarioDto usuario) {
+        this.usuario = usuario;
     }
     
 }
