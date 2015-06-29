@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.administracion;
+package com.making.scm.bl;
 
 /**
  *
