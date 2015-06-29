@@ -22,6 +22,15 @@ public class UsuarioMapper implements IMapper {
 
         UsuarioDto usuarioDto = new UsuarioDto();
 
+        usuarioDto.setId(entity.getIdUsuario());
+        usuarioDto.setNombres(entity.getNombreUsuario());
+        usuarioDto.setApellidos(entity.getApellidoUsuario());
+        usuarioDto.setNumeroIdentificacion(entity.getNumeroIdentificacion());
+        usuarioDto.setId(entity.getIdUsuario());
+        usuarioDto.setId(entity.getIdUsuario());
+        
+        
+        
         return usuarioDto;
     }
 

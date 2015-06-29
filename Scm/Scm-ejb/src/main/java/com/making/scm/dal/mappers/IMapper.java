@@ -6,6 +6,7 @@
 package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
+import com.making.scm.persistence.EntityObject;
 
 /**
  *
@@ -19,11 +20,12 @@ public interface IMapper {
      * @param dto
      * @return
      */
-    public Dto entityToDto(Object entityObject);
+    public Dto entityToDto(EntityObject entityObject);
     
     /**
      *
      * @param dto
+     * @return 
      */
-    public void dtoToEntity(Dto dto);
+    public EntityObject dtoToEntity(Dto dto);
 }
