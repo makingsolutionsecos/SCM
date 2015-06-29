@@ -10,39 +10,39 @@ public class RolDto {
     /**
      * Identificador único para el rol.
      */
-    private int Id;
+    private int id;
 
     /**
      * Nombre del rol.
      */
-    private String Nombre;
+    private String nombre;
 
     /**
      * @return the Id
      */
     public int getId() {
-        return Id;
+        return id;
     }
 
     /**
      * @param Id the Id to set
      */
     public void setId(int Id) {
-        this.Id = Id;
+        this.id = Id;
     }
 
     /**
      * @return the Nombre
      */
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     /**
      * @param Nombre the Nombre to set
      */
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.nombre = Nombre;
     }
 
 }
