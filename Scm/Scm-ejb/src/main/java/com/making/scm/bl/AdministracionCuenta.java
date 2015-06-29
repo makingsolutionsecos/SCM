@@ -14,6 +14,7 @@ public class AdministracionCuenta {
 
     /**
      * Método para insertar un usuario en el sistema.
+     *
      * @param usuario a insertar
      * @return cantidad de registros insertados.
      */
@@ -23,8 +24,9 @@ public class AdministracionCuenta {
 
     /**
      * Método para obtener un usuario por identificación.
+     *
      * @param identificacion del usuario para realizaer el filtro.
-     * @return 
+     * @return
      */
     public UsuarioDto obtenerUsuarioPorIdentificacion(String identificacion) {
         UsuarioDto usuario = null;
@@ -34,8 +36,9 @@ public class AdministracionCuenta {
 
     /**
      * Método para obtener un usuario por correo.
+     *
      * @param correoElectroncio para ejecutar el filtro de usuarios.
-     * @return 
+     * @return
      */
     public UsuarioDto obtenerUsuarioPorCorreo(String correoElectroncio) {
         UsuarioDto usuario = null;
@@ -43,14 +46,24 @@ public class AdministracionCuenta {
         return usuario;
     }
 
+    /**
+     * Método para obtener los uauraios del sistema.
+     *
+     * @return
+     */
     public List<UsuarioDto> obtenerUsuarios() {
         List<UsuarioDto> usuarios = new ArrayList<UsuarioDto>();
-
         return usuarios;
     }
 
-    public int actualizarUsuario(UsuarioDto usuario) {
-        return 0;
+    /**
+     * Método para actualizar un usuario en el sistema.
+     *
+     * @param usuario a acturalizar.
+     * @return verdadero si la operación se hizo, de lo contrario falso.
+     */
+    public boolean actualizarUsuario(UsuarioDto usuario) {
+        return true;
     }
 
 }
