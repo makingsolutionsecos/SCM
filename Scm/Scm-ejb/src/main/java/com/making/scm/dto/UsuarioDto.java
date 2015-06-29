@@ -1,5 +1,6 @@
 package com.making.scm.dto;
 
+import com.making.scm.enumeration.SexoEnum;
 import java.util.Date;
 
 /**
@@ -68,5 +69,5 @@ public class UsuarioDto {
     /**
      * Obtiene o establece el sexo del usuario.
      */
-    private Sexo sexo;
+    private SexoEnum sexo;
 }
