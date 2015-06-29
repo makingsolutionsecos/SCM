@@ -44,5 +44,4 @@ public class RolDto {
     public void setNombre(String Nombre) {
         this.nombre = Nombre;
     }
-
 }
