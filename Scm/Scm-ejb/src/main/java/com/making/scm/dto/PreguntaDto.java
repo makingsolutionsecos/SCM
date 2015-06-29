@@ -3,9 +3,14 @@ package com.making.scm.dto;
 import java.util.List;
 
 /**
+<<<<<<< Updated upstream
  * Clase que representa una pregunta del sistema
  * 
  * @author jorgealfonsobeltran
+=======
+ *
+ * @author Camilo Marroquin
+>>>>>>> Stashed changes
  */
 public class PreguntaDto extends Dto{
     

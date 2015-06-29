@@ -9,7 +9,7 @@ import com.making.scm.dto.Dto;
 
 /**
  *
- * @author camilomarroquin
+ * @author Camilo Marroquin
  */
 public class UsuarioMapper implements IMapper{
 

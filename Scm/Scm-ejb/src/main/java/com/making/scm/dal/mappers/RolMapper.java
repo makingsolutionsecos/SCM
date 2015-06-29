@@ -5,10 +5,22 @@
  */
 package com.making.scm.dal.mappers;
 
+import com.making.scm.dto.Dto;
+
 /**
  *
- * @author camilomarroquin
+ * @author Camilo Marroquin
  */
-public class RolMapper {
+public class RolMapper implements IMapper{
+
+    @Override
+    public void entityToDto(Dto dto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void dtoToEntity(Object dto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

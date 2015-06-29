@@ -7,7 +7,7 @@ package com.making.scm.dto;
 
 /**
  *
- * @author camilomarroquin
+ * @author Camilo Marroquin
  */
 public class Dto {
     
