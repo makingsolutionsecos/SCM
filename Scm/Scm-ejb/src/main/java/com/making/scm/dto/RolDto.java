@@ -2,15 +2,16 @@ package com.making.scm.dto;
 
 /**
  * Clase que representa un rol en el sistema-
+ *
  * @author John Dany osorio Ramos
  */
 public class RolDto {
-    
+
     /**
      * Identificador único para el rol.
-     */    
+     */
     private int Id;
-    
+
     /**
      * Nombre del rol.
      */
@@ -43,5 +44,5 @@ public class RolDto {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    
+
 }
