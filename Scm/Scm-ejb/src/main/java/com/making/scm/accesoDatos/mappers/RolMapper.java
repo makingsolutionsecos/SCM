@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.dal.mappers;
+package com.making.scm.accesoDatos.mappers;
 
 import com.making.scm.dto.Dto;
 import com.making.scm.persistencia.EntityObject;
@@ -12,7 +12,7 @@ import com.making.scm.persistencia.EntityObject;
  *
  * @author Camilo Marroquin
  */
-public class AudioMapper implements IMapper {
+public class RolMapper implements IMapper {
 
     @Override
     public Dto entityToDto(EntityObject entityObject) {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.dal.mappers;
+package com.making.scm.accesoDatos.mappers;
 
 import com.making.scm.dto.Dto;
 import com.making.scm.dto.UsuarioDto;
