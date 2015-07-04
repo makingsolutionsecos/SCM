@@ -7,7 +7,7 @@ package com.making.scm.negocio;
 
 import com.making.scm.dal.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
-import com.making.scm.dataAccess.RespuestaRegistroDal;
+import com.making.scm.accesoDatos.RespuestaRegistroDal;
 import com.making.scm.persistencia.RespuestaRegistro;
 import javax.ejb.EJB;
 
