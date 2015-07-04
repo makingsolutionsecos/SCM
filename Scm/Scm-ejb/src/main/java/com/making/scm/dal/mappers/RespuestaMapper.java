@@ -6,7 +6,9 @@
 package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
+import com.making.scm.dto.RespuestaDto;
 import com.making.scm.persistencia.EntityObject;
+import com.making.scm.persistencia.Respuesta;
 
 /**
  *
@@ -16,7 +18,14 @@ public class RespuestaMapper implements IMapper {
 
     @Override
     public Dto entityToDto(EntityObject entityObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Respuesta respuesta = (Respuesta) entityObject;
+        PreguntaMapper preguntaMapper = new PreguntaMapper();
+        RespuestaDto respuestaDto = new RespuestaDto();
+        respuestaDto.setId(respuesta.getIdRespuesta());
+//        respuestaDto.setPregunta(preguntaMapper.entityToDto(respuesta.get));
+        respuestaDto.setRespuesta(respuesta.getRespuesta());
+        
+        return respuestaDto;
     }
 
     @Override

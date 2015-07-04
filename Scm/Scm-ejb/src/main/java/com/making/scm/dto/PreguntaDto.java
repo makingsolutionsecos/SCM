@@ -17,7 +17,7 @@ public class PreguntaDto extends Dto{
     /**
      * Identificador unico de la pregunta
      */
-    private int id;
+    private Long id;
     
     /**
      * Contenido de la pregunta
@@ -32,14 +32,14 @@ public class PreguntaDto extends Dto{
     /**
      * @return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

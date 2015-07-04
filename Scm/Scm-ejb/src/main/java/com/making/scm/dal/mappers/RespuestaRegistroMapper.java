@@ -9,7 +9,6 @@ import com.making.scm.dto.Dto;
 import com.making.scm.dto.RegistroRespuestaDto;
 import com.making.scm.persistencia.EntityObject;
 import com.making.scm.persistencia.RespuestaRegistro;
-import java.math.BigDecimal;
 
 /**
  *
@@ -23,10 +22,10 @@ public class RespuestaRegistroMapper implements IMapper {
         
         RegistroRespuestaDto registroRespuestaDto = new RegistroRespuestaDto();
         registroRespuestaDto.setId(entity.getIdRegistroRespuesta());
-        registroRespuestaDto.setRegistro(null);
-        registroRespuestaDto.setRespuesta(null);
-        registroRespuestaDto.setTexto(null);
-        registroRespuestaDto.setPregunta(null);
+//        registroRespuestaDto.setRegistro(entity.getIdRegistro());
+//        registroRespuestaDto.setRespuesta(entity.getIdRespuesta());
+        registroRespuestaDto.setTexto(entity.getTextoOtro());
+//        registroRespuestaDto.setPregunta(entity.getIdPregunta());
 
         return registroRespuestaDto;
     }

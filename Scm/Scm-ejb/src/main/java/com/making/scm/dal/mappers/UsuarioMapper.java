@@ -26,16 +26,20 @@ public class UsuarioMapper implements IMapper {
         usuarioDto.setNombres(entity.getNombreUsuario());
         usuarioDto.setApellidos(entity.getApellidoUsuario());
         usuarioDto.setNumeroIdentificacion(entity.getNumeroIdentificacion());
-        usuarioDto.setId(entity.getIdUsuario());
-        usuarioDto.setId(entity.getIdUsuario());
-        
-        
         
         return usuarioDto;
     }
 
     @Override
     public EntityObject dtoToEntity(Dto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        UsuarioDto usuarioDto = (UsuarioDto) dto;      
+        
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(Long.MIN_VALUE);
+        usuario.setNombreUsuario(null);
+        usuario.setApellidoUsuario(null);
+        usuario.setNumeroIdentificacion(null);
+        
+        return usuario;
     }
 }

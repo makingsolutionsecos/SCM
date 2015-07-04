@@ -10,7 +10,7 @@ public class RespuestaDto extends Dto{
     /**
      * Identificador de la regunta
      */
-    private int id;
+    private Long id;
     
     /**
      * Pregunta preunta a la que la respuesta se encuentra relacionada
@@ -30,14 +30,14 @@ public class RespuestaDto extends Dto{
     /**
      * @return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

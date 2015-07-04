@@ -3,7 +3,7 @@ package com.making.scm.dto;
 import java.util.Date;
 
 /**
- * Clase que representa un registro de sintomas en el sistema
+ * Clase que representa un registro de sLongomas en el sistema
  *
  * @author jorgealfonsobeltran
  */
@@ -12,7 +12,7 @@ public class RegistroDto extends Dto{
     /**
      * Identificador unico del registro
      */
-    private int id;
+    private Long id;
     
     /**
      * Fecha en la que se realiza el registro 
@@ -27,14 +27,14 @@ public class RegistroDto extends Dto{
     /**
      * @return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
