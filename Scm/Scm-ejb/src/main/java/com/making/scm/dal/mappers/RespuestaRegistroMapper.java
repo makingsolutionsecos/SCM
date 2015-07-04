@@ -6,7 +6,10 @@
 package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
+import com.making.scm.dto.PreguntaDto;
+import com.making.scm.dto.RegistroDto;
 import com.making.scm.dto.RegistroRespuestaDto;
+import com.making.scm.dto.RespuestaDto;
 import com.making.scm.persistencia.EntityObject;
 import com.making.scm.persistencia.RespuestaRegistro;
 
@@ -20,12 +23,15 @@ public class RespuestaRegistroMapper implements IMapper {
     public Dto entityToDto(EntityObject entityObject) {
         RespuestaRegistro entity = (RespuestaRegistro) entityObject;
         
+        RegistroMapper registroMapper = new RegistroMapper();
+        RespuestaMapper respuestaMapper = new RespuestaMapper();
+        PreguntaMapper preguntaMapper = new PreguntaMapper();
         RegistroRespuestaDto registroRespuestaDto = new RegistroRespuestaDto();
         registroRespuestaDto.setId(entity.getIdRegistroRespuesta());
-//        registroRespuestaDto.setRegistro(entity.getIdRegistro());
-//        registroRespuestaDto.setRespuesta(entity.getIdRespuesta());
+        registroRespuestaDto.setRegistro((RegistroDto) registroMapper.entityToDto(entity.getIdRegistro()));
+        registroRespuestaDto.setRespuesta((RespuestaDto) respuestaMapper.entityToDto(entity.getIdRespuesta()));
         registroRespuestaDto.setTexto(entity.getTextoOtro());
-//        registroRespuestaDto.setPregunta(entity.getIdPregunta());
+        registroRespuestaDto.setPregunta((PreguntaDto) preguntaMapper.entityToDto(entity.getIdPregunta()));
 
         return registroRespuestaDto;
     }

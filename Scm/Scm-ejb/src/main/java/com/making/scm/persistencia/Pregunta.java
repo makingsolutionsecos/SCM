@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.making.scm.persistencia;
@@ -7,6 +8,7 @@ package com.making.scm.persistencia;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +21,10 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-
+/**
+ *
+ * @author Usuario
+ */
 @Entity
 @Table(name = "pregunta")
 @XmlRootElement
@@ -40,8 +45,8 @@ public class Pregunta extends EntityObject implements Serializable {
     @Size(min = 1, max = 1024)
     @Column(name = "pregunta")
     private String pregunta;
-    @OneToMany(mappedBy = "idPregunta")
-    private List<RespuestaRegistro> respuestaRegistroList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta")
+    private List<Respuesta> respuestaList;
 
     public Pregunta() {
     }
@@ -72,12 +77,12 @@ public class Pregunta extends EntityObject implements Serializable {
     }
 
     @XmlTransient
-    public List<RespuestaRegistro> getRespuestaRegistroList() {
-        return respuestaRegistroList;
+    public List<Respuesta> getRespuestaList() {
+        return respuestaList;
     }
 
-    public void setRespuestaRegistroList(List<RespuestaRegistro> respuestaRegistroList) {
-        this.respuestaRegistroList = respuestaRegistroList;
+    public void setRespuestaList(List<Respuesta> respuestaList) {
+        this.respuestaList = respuestaList;
     }
 
     @Override
@@ -102,7 +107,7 @@ public class Pregunta extends EntityObject implements Serializable {
 
     @Override
     public String toString() {
-        return "com.making.scm.persistence.Pregunta[ idPregunta=" + idPregunta + " ]";
+        return "com.making.scm.persistencia.Pregunta[ idPregunta=" + idPregunta + " ]";
     }
     
 }

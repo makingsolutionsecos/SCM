@@ -1,32 +1,34 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-
+/**
+ *
+ * @author Usuario
+ */
 @Entity
 @Table(name = "respuesta")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Respuesta.findAll", query = "SELECT r FROM Respuesta r"),
     @NamedQuery(name = "Respuesta.findByIdRespuesta", query = "SELECT r FROM Respuesta r WHERE r.idRespuesta = :idRespuesta"),
-    @NamedQuery(name = "Respuesta.findByIdPregunta", query = "SELECT r FROM Respuesta r WHERE r.idPregunta = :idPregunta"),
     @NamedQuery(name = "Respuesta.findByRespuesta", query = "SELECT r FROM Respuesta r WHERE r.respuesta = :respuesta")})
 public class Respuesta extends EntityObject implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -38,17 +40,12 @@ public class Respuesta extends EntityObject implements Serializable {
     private Long idRespuesta;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_pregunta")
-    private Long idPregunta;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 1024)
     @Column(name = "respuesta")
     private String respuesta;
-    @OneToMany(mappedBy = "idRespuesta")
-    private List<RespuestaRegistro> respuestaRegistroList;
-    @OneToMany(mappedBy = "idRespuesta")
-    private List<Conocimiento> conocimientoList;
+    @JoinColumn(name = "id_pregunta", referencedColumnName = "id_pregunta")
+    @ManyToOne(optional = false)
+    private Pregunta idPregunta;
 
     public Respuesta() {
     }
@@ -57,9 +54,8 @@ public class Respuesta extends EntityObject implements Serializable {
         this.idRespuesta = idRespuesta;
     }
 
-    public Respuesta(Long idRespuesta, Long idPregunta, String respuesta) {
+    public Respuesta(Long idRespuesta, String respuesta) {
         this.idRespuesta = idRespuesta;
-        this.idPregunta = idPregunta;
         this.respuesta = respuesta;
     }
 
@@ -71,14 +67,6 @@ public class Respuesta extends EntityObject implements Serializable {
         this.idRespuesta = idRespuesta;
     }
 
-    public Long getIdPregunta() {
-        return idPregunta;
-    }
-
-    public void setIdPregunta(Long idPregunta) {
-        this.idPregunta = idPregunta;
-    }
-
     public String getRespuesta() {
         return respuesta;
     }
@@ -87,22 +75,12 @@ public class Respuesta extends EntityObject implements Serializable {
         this.respuesta = respuesta;
     }
 
-    @XmlTransient
-    public List<RespuestaRegistro> getRespuestaRegistroList() {
-        return respuestaRegistroList;
+    public Pregunta getIdPregunta() {
+        return idPregunta;
     }
 
-    public void setRespuestaRegistroList(List<RespuestaRegistro> respuestaRegistroList) {
-        this.respuestaRegistroList = respuestaRegistroList;
-    }
-
-    @XmlTransient
-    public List<Conocimiento> getConocimientoList() {
-        return conocimientoList;
-    }
-
-    public void setConocimientoList(List<Conocimiento> conocimientoList) {
-        this.conocimientoList = conocimientoList;
+    public void setIdPregunta(Pregunta idPregunta) {
+        this.idPregunta = idPregunta;
     }
 
     @Override
@@ -127,7 +105,7 @@ public class Respuesta extends EntityObject implements Serializable {
 
     @Override
     public String toString() {
-        return "com.making.scm.persistence.Respuesta[ idRespuesta=" + idRespuesta + " ]";
+        return "com.making.scm.persistencia.Respuesta[ idRespuesta=" + idRespuesta + " ]";
     }
     
 }

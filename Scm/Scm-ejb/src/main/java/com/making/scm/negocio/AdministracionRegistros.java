@@ -5,8 +5,10 @@
  */
 package com.making.scm.negocio;
 
+import com.making.scm.dal.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
 import com.making.scm.fachada.RespuestaRegistroFacade;
+import com.making.scm.persistencia.RespuestaRegistro;
 import javax.ejb.EJB;
 
 /**
@@ -24,7 +26,9 @@ public class AdministracionRegistros {
     
    public void guardarRegistroRespuestaCLiente(RegistroRespuestaDto registroRespuestaDto){
        
-//       respuestaRegistroFacade.edit(registroRespuestaDto);
+       RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
+       
+       respuestaRegistroFacade.edit((RespuestaRegistro)respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
        
    }
     
