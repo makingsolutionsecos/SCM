@@ -1,6 +1,6 @@
 package com.making.scm.dto;
 
-import com.making.scm.enumeracion.SexoEnum;
+import com.making.scm.enumeracion.GeneroEnum;
 import java.util.Date;
 
 /**
@@ -9,6 +9,20 @@ import java.util.Date;
  * @author camilomarroquin
  */
 public class UsuarioDto extends Dto{
+    
+    //nombre_usuario			
+    //fecha_nacimiento			
+    //genero			
+    //numero_telefono			
+    //numero_identificacion			
+    //id_usuario			
+    //apellido_usuario			
+    //direccion			
+    //telefono			
+    //correo			
+    //contrasena			
+    //id_cloud			
+    //id_rol
 
     /**
      * Obtiene o establece el identificador único del usuario del sistema.
@@ -43,18 +57,18 @@ public class UsuarioDto extends Dto{
     /**
      * Obiene o establece los teléfonos del contacto.
      */
-    private String telefonos;
+    private String numeroTelefono;
 
     /**
      * Obtiene o establece el correo electrónico. Usado para loguearse al
      * sistema.
      */
-    private String correoElectronico;
+    private String correo;
 
     /**
-     * Obtiene o establece la clave de acceso al sistema.
+     * Obtiene o establece la contrasena de acceso al sistema.
      */
-    private String clave;
+    private String contrasena;
 
     /**
      * Obtiene o establece la identificación del cloud para móviles.
@@ -67,9 +81,9 @@ public class UsuarioDto extends Dto{
     private RolDto rol;
 
     /**
-     * Obtiene o establece el sexo del usuario.
+     * Obtiene o establece el genero del usuario.
      */
-    private SexoEnum sexo;
+    private GeneroEnum genero;
 
     /**
      * @return the id
@@ -156,45 +170,45 @@ public class UsuarioDto extends Dto{
     }
 
     /**
-     * @return the telefonos
+     * @return the numeroTelefono
      */
-    public String getTelefonos() {
-        return telefonos;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
     /**
-     * @param telefonos the telefonos to set
+     * @param numeroTelefono the numeroTelefono to set
      */
-    public void setTelefonos(String telefonos) {
-        this.telefonos = telefonos;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
     /**
-     * @return the correoElectronico
+     * @return the correo
      */
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getCorreo() {
+        return correo;
     }
 
     /**
-     * @param correoElectronico the correoElectronico to set
+     * @param correo the correo to set
      */
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     /**
-     * @return the clave
+     * @return the contrasena
      */
-    public String getClave() {
-        return clave;
+    public String getContrasena() {
+        return contrasena;
     }
 
     /**
-     * @param clave the clave to set
+     * @param contrasena the contrasena to set
      */
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     /**
@@ -226,16 +240,16 @@ public class UsuarioDto extends Dto{
     }
 
     /**
-     * @return the sexo
+     * @return the genero
      */
-    public SexoEnum getSexo() {
-        return sexo;
+    public GeneroEnum getGenero() {
+        return genero;
     }
 
     /**
-     * @param sexo the sexo to set
+     * @param genero the genero to set
      */
-    public void setSexo(SexoEnum sexo) {
-        this.sexo = sexo;
+    public void setGenero(GeneroEnum genero) {
+        this.genero = genero;
     }
 }

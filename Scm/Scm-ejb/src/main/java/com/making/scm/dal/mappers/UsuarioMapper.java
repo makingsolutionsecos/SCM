@@ -9,6 +9,7 @@ import com.making.scm.dto.Dto;
 import com.making.scm.dto.UsuarioDto;
 import com.making.scm.persistencia.EntityObject;
 import com.making.scm.persistencia.Usuario;
+import com.making.scm.utilidades.Util;
 
 /**
  *
@@ -24,10 +25,31 @@ public class UsuarioMapper implements IMapper {
 
         usuarioDto.setId(entity.getIdUsuario());
         usuarioDto.setNombres(entity.getNombreUsuario());
+        usuarioDto.setFechaNacimiento(entity.getFechaNacimiento());
+        usuarioDto.setGenero(Util.getEnumGenero(entity.getGenero()));
+        usuarioDto.setNumeroTelefono(entity.getNumeroTelefono());
+        usuarioDto.setNumeroIdentificacion(entity.getNumeroIdentificacion());        
         usuarioDto.setApellidos(entity.getApellidoUsuario());
-        usuarioDto.setNumeroIdentificacion(entity.getNumeroIdentificacion());
+        usuarioDto.setDireccion(entity.getDireccion());
+        usuarioDto.setCorreo(entity.getCorreo());
+        usuarioDto.setContrasena(entity.getContrasena());
+        usuarioDto.setIdCloud(entity.getIdCloud());
+        usuarioDto.setRol(null);
         
         return usuarioDto;
+        
+        //nombre_usuario			
+        //fecha_nacimiento			
+        //genero			
+        //numero_telefono			
+        //numero_identificacion			
+        //id_usuario			
+        //apellido_usuario			
+        //direccion			
+        //correo			
+        //contrasena			
+        //id_cloud			
+        //id_rol
     }
 
     @Override

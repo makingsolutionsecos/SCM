@@ -41,7 +41,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario"),
     @NamedQuery(name = "Usuario.findByApellidoUsuario", query = "SELECT u FROM Usuario u WHERE u.apellidoUsuario = :apellidoUsuario"),
     @NamedQuery(name = "Usuario.findByDireccion", query = "SELECT u FROM Usuario u WHERE u.direccion = :direccion"),
-    @NamedQuery(name = "Usuario.findByTelefono", query = "SELECT u FROM Usuario u WHERE u.telefono = :telefono"),
     @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo"),
     @NamedQuery(name = "Usuario.findByContrasena", query = "SELECT u FROM Usuario u WHERE u.contrasena = :contrasena"),
     @NamedQuery(name = "Usuario.findByIdCloud", query = "SELECT u FROM Usuario u WHERE u.idCloud = :idCloud")})
@@ -79,9 +78,6 @@ public class Usuario extends EntityObject implements Serializable  {
     @Size(max = 2147483647)
     @Column(name = "direccion")
     private String direccion;
-    @Size(max = 15)
-    @Column(name = "telefono")
-    private String telefono;
     @Size(max = 100)
     @Column(name = "correo")
     private String correo;
@@ -173,14 +169,6 @@ public class Usuario extends EntityObject implements Serializable  {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     public String getCorreo() {
