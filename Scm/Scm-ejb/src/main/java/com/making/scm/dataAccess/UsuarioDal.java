@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.dal;
+package com.making.scm.dataAccess;
 
-import com.making.scm.persistencia.Registro;
+import com.making.scm.persistencia.Usuario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Usuario
  */
 @Stateless
-public class RegistroDal extends AbstractDal<Registro> {
+public class UsuarioDal extends AbstractDal<Usuario> {
     @PersistenceContext(unitName = "com.making-PU")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class RegistroDal extends AbstractDal<Registro> {
         return em;
     }
 
-    public RegistroDal() {
-        super(Registro.class);
+    public UsuarioDal() {
+        super(Usuario.class);
     }
     
 }
