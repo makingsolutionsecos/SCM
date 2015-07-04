@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.making.scm.bl;
+import com.making.scm.
 
 /**
  *
@@ -11,6 +12,15 @@ package com.making.scm.bl;
  */
 public class AdministracionRegistros {
     
+    public AdministracionRegistros(){
+    }
+    
+    public boolean crearRegistro(){
+        return false;
+    }
     
     
+    public RegistroRespuestaDTO obtenerRegistro(){
+        return false;
+    }
 }
