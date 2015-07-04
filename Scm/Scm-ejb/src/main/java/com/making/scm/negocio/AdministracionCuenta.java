@@ -1,6 +1,9 @@
 package com.making.scm.negocio;
 
+import com.making.scm.accesoDatos.UsuarioDal;
+import com.making.scm.accesoDatos.mappers.UsuarioMapper;
 import com.making.scm.dto.UsuarioDto;
+import com.making.scm.persistencia.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +55,22 @@ public class AdministracionCuenta {
      * @return
      */
     public List<UsuarioDto> obtenerUsuarios() {
-        List<UsuarioDto> usuarios = new ArrayList<UsuarioDto>();
-        return usuarios;
+       List<UsuarioDto> listaUsuarios = new ArrayList<UsuarioDto>();
+        UsuarioDal usuarioDal = new UsuarioDal();
+        
+        //Lista todos lo elementos de la base de datos
+        List<Usuario> listaUsuariosDB = usuarioDal.findAll();
+        
+        //Mapper de la entidad
+        UsuarioMapper usuarioMapper = new UsuarioMapper();
+        
+        //Mapea cada elemento de la lista
+        for(Usuario  usuario: listaUsuariosDB){
+            listaUsuarios.add((UsuarioDto)usuarioMapper.entityToDto(usuario));
+        }
+        
+        //Retorna la lista
+        return listaUsuarios;
     }
 
     /**
