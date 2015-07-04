@@ -1,4 +1,4 @@
-package com.making.scm.bl;
+package com.making.scm.negocio;
 
 import com.making.scm.dto.UsuarioDto;
 import java.util.ArrayList;

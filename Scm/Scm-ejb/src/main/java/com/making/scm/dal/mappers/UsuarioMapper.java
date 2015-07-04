@@ -7,8 +7,8 @@ package com.making.scm.dal.mappers;
 
 import com.making.scm.dto.Dto;
 import com.making.scm.dto.UsuarioDto;
-import com.making.scm.persistence.EntityObject;
-import com.making.scm.persistence.Usuario;
+import com.making.scm.persistencia.EntityObject;
+import com.making.scm.persistencia.Usuario;
 
 /**
  *

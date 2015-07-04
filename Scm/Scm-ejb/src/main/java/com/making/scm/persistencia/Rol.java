@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.persistence;
+package com.making.scm.persistencia;
 
 import java.io.Serializable;
 import java.util.List;

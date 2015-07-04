@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.bl;
+package com.making.scm.negocio;
 
 import com.making.scm.dto.PreguntaDto;
 import java.util.ArrayList;

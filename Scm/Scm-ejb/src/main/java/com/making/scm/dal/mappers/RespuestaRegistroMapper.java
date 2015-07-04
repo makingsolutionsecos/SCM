@@ -10,9 +10,9 @@ import com.making.scm.persistencia.EntityObject;
 
 /**
  *
- * @author Camilo Marroquin
+ * @author Usuario
  */
-public class RegistroMapper implements IMapper {
+public class RespuestaRegistroMapper implements IMapper{
 
     @Override
     public Dto entityToDto(EntityObject entityObject) {
@@ -23,5 +23,5 @@ public class RegistroMapper implements IMapper {
     public EntityObject dtoToEntity(Dto dto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }
