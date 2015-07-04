@@ -72,7 +72,7 @@ public class Usuario extends EntityObject implements Serializable  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_usuario")
-    private Integer idUsuario;
+    private Long idUsuario;
     @Size(max = 30)
     @Column(name = "apellido_usuario")
     private String apellidoUsuario;
@@ -100,11 +100,11 @@ public class Usuario extends EntityObject implements Serializable  {
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario) {
+    public Usuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idUsuario, String nombreUsuario, Date fechaNacimiento, String numeroIdentificacion) {
+    public Usuario(Long idUsuario, String nombreUsuario, Date fechaNacimiento, String numeroIdentificacion) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.fechaNacimiento = fechaNacimiento;
@@ -151,11 +151,11 @@ public class Usuario extends EntityObject implements Serializable  {
         this.numeroIdentificacion = numeroIdentificacion;
     }
 
-    public Integer getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 

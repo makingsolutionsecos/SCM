@@ -13,7 +13,7 @@ public class UsuarioDto extends Dto{
     /**
      * Obtiene o establece el identificador único del usuario del sistema.
      */
-    private int id;
+    private Long id;
 
     /**
      * Obtiene o establece la identificación del usuario.
@@ -74,14 +74,14 @@ public class UsuarioDto extends Dto{
     /**
      * @return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

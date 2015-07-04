@@ -5,7 +5,6 @@
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +34,7 @@ public class Audio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_audio")
-    private BigDecimal idAudio;
+    private Long idAudio;
     @Size(max = 2147483647)
     @Column(name = "cadena_audio")
     private String cadenaAudio;
@@ -46,15 +45,15 @@ public class Audio implements Serializable {
     public Audio() {
     }
 
-    public Audio(BigDecimal idAudio) {
+    public Audio(Long idAudio) {
         this.idAudio = idAudio;
     }
 
-    public BigDecimal getIdAudio() {
+    public Long getIdAudio() {
         return idAudio;
     }
 
-    public void setIdAudio(BigDecimal idAudio) {
+    public void setIdAudio(Long idAudio) {
         this.idAudio = idAudio;
     }
 

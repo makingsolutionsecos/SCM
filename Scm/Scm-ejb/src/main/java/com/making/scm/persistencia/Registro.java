@@ -5,7 +5,6 @@
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -39,7 +38,7 @@ public class Registro extends EntityObject implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_registro")
-    private BigDecimal idRegistro;
+    private Long idRegistro;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_registro")
@@ -58,20 +57,20 @@ public class Registro extends EntityObject implements Serializable {
     public Registro() {
     }
 
-    public Registro(BigDecimal idRegistro) {
+    public Registro(Long idRegistro) {
         this.idRegistro = idRegistro;
     }
 
-    public Registro(BigDecimal idRegistro, Date fechaRegistro) {
+    public Registro(Long idRegistro, Date fechaRegistro) {
         this.idRegistro = idRegistro;
         this.fechaRegistro = fechaRegistro;
     }
 
-    public BigDecimal getIdRegistro() {
+    public Long getIdRegistro() {
         return idRegistro;
     }
 
-    public void setIdRegistro(BigDecimal idRegistro) {
+    public void setIdRegistro(Long idRegistro) {
         this.idRegistro = idRegistro;
     }
 

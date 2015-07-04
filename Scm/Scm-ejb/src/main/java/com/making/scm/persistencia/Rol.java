@@ -34,7 +34,7 @@ public class Rol extends EntityObject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_rol")
-    private Integer idRol;
+    private Long idRol;
     @Size(max = 30)
     @Column(name = "nombre_rol")
     private String nombreRol;
@@ -47,15 +47,15 @@ public class Rol extends EntityObject implements Serializable {
     public Rol() {
     }
 
-    public Rol(Integer idRol) {
+    public Rol(Long idRol) {
         this.idRol = idRol;
     }
 
-    public Integer getIdRol() {
+    public Long getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(Integer idRol) {
+    public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
 

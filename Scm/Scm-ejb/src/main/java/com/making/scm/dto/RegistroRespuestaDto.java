@@ -5,12 +5,12 @@ package com.making.scm.dto;
  *
  * @author jorgealfonsobeltran
  */
-public class RegistroRespuestaDto {
+public class RegistroRespuestaDto extends Dto{
     
     /**
      * Identificador unico del registro de la respuesta ingresada por el usuario
      */
-    private int id;
+    private Long id;
     
     /**
      * Registro asociado a la respuesta del usuario
@@ -35,14 +35,14 @@ public class RegistroRespuestaDto {
     /**
      * @return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

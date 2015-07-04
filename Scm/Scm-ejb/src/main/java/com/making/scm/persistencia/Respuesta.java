@@ -5,8 +5,6 @@
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -37,11 +35,11 @@ public class Respuesta extends EntityObject implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_respuesta")
-    private BigDecimal idRespuesta;
+    private Long idRespuesta;
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_pregunta")
-    private BigInteger idPregunta;
+    private Long idPregunta;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 1024)
@@ -55,29 +53,29 @@ public class Respuesta extends EntityObject implements Serializable {
     public Respuesta() {
     }
 
-    public Respuesta(BigDecimal idRespuesta) {
+    public Respuesta(Long idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
 
-    public Respuesta(BigDecimal idRespuesta, BigInteger idPregunta, String respuesta) {
+    public Respuesta(Long idRespuesta, Long idPregunta, String respuesta) {
         this.idRespuesta = idRespuesta;
         this.idPregunta = idPregunta;
         this.respuesta = respuesta;
     }
 
-    public BigDecimal getIdRespuesta() {
+    public Long getIdRespuesta() {
         return idRespuesta;
     }
 
-    public void setIdRespuesta(BigDecimal idRespuesta) {
+    public void setIdRespuesta(Long idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
 
-    public BigInteger getIdPregunta() {
+    public Long getIdPregunta() {
         return idPregunta;
     }
 
-    public void setIdPregunta(BigInteger idPregunta) {
+    public void setIdPregunta(Long idPregunta) {
         this.idPregunta = idPregunta;
     }
 

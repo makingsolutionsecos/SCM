@@ -32,7 +32,7 @@ public class RespuestaConocimiento extends EntityObject implements Serializable 
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_respuesta_conocimiento")
-    private Integer idRespuestaConocimiento;
+    private Long idRespuestaConocimiento;
     @Size(max = 2147483647)
     @Column(name = "diagnostico")
     private String diagnostico;
@@ -43,15 +43,15 @@ public class RespuestaConocimiento extends EntityObject implements Serializable 
     public RespuestaConocimiento() {
     }
 
-    public RespuestaConocimiento(Integer idRespuestaConocimiento) {
+    public RespuestaConocimiento(Long idRespuestaConocimiento) {
         this.idRespuestaConocimiento = idRespuestaConocimiento;
     }
 
-    public Integer getIdRespuestaConocimiento() {
+    public Long getIdRespuestaConocimiento() {
         return idRespuestaConocimiento;
     }
 
-    public void setIdRespuestaConocimiento(Integer idRespuestaConocimiento) {
+    public void setIdRespuestaConocimiento(Long idRespuestaConocimiento) {
         this.idRespuestaConocimiento = idRespuestaConocimiento;
     }
 

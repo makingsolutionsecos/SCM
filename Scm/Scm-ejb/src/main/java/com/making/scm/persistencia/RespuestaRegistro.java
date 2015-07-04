@@ -5,7 +5,6 @@
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +33,7 @@ public class RespuestaRegistro extends EntityObject implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_registro_respuesta")
-    private BigDecimal idRegistroRespuesta;
+    private Long idRegistroRespuesta;
     @Size(max = 1024)
     @Column(name = "texto_otro")
     private String textoOtro;
@@ -51,15 +50,15 @@ public class RespuestaRegistro extends EntityObject implements Serializable {
     public RespuestaRegistro() {
     }
 
-    public RespuestaRegistro(BigDecimal idRegistroRespuesta) {
+    public RespuestaRegistro(Long idRegistroRespuesta) {
         this.idRegistroRespuesta = idRegistroRespuesta;
     }
 
-    public BigDecimal getIdRegistroRespuesta() {
+    public Long getIdRegistroRespuesta() {
         return idRegistroRespuesta;
     }
 
-    public void setIdRegistroRespuesta(BigDecimal idRegistroRespuesta) {
+    public void setIdRegistroRespuesta(Long idRegistroRespuesta) {
         this.idRegistroRespuesta = idRegistroRespuesta;
     }
 
