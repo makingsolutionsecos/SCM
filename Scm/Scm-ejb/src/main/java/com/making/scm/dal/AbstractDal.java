@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.fachada;
+package com.making.scm.dal;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -12,10 +12,10 @@ import javax.persistence.EntityManager;
  *
  * @author Usuario
  */
-public abstract class AbstractFacade<T> {
+public abstract class AbstractDal<T> {
     private Class<T> entityClass;
 
-    public AbstractFacade(Class<T> entityClass) {
+    public AbstractDal(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 

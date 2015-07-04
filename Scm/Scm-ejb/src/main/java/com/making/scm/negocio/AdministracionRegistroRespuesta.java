@@ -7,7 +7,7 @@ package com.making.scm.negocio;
 
 import com.making.scm.dal.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
-import com.making.scm.fachada.RespuestaRegistroFacade;
+import com.making.scm.dal.RespuestaRegistroDal;
 import com.making.scm.persistencia.RespuestaRegistro;
 import javax.ejb.EJB;
 
@@ -18,7 +18,7 @@ import javax.ejb.EJB;
 public class AdministracionRegistroRespuesta {
 
     @EJB
-    private RespuestaRegistroFacade respuestaRegistroFacade;
+    private RespuestaRegistroDal respuestaRegistroFacade;
 
     public AdministracionRegistroRespuesta() {
     }

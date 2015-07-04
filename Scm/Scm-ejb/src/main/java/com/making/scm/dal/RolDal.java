@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.fachada;
+package com.making.scm.dal;
 
-import com.making.scm.persistencia.Conocimiento;
+import com.making.scm.persistencia.Rol;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Usuario
  */
 @Stateless
-public class ConocimientoFacade extends AbstractFacade<Conocimiento> {
+public class RolDal extends AbstractDal<Rol> {
     @PersistenceContext(unitName = "com.making-PU")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class ConocimientoFacade extends AbstractFacade<Conocimiento> {
         return em;
     }
 
-    public ConocimientoFacade() {
-        super(Conocimiento.class);
+    public RolDal() {
+        super(Rol.class);
     }
     
 }
