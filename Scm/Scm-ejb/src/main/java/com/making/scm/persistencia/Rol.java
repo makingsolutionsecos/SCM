@@ -1,61 +1,61 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.making.scm.persistencia;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author Usuario
+ */
 @Entity
 @Table(name = "rol")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r"),
     @NamedQuery(name = "Rol.findByIdRol", query = "SELECT r FROM Rol r WHERE r.idRol = :idRol"),
-    @NamedQuery(name = "Rol.findByNombreRol", query = "SELECT r FROM Rol r WHERE r.nombreRol = :nombreRol")})
+    @NamedQuery(name = "Rol.findByNombreRol", query = "SELECT r FROM Rol r WHERE r.nombreRol = :nombreRol"),
+    @NamedQuery(name = "Rol.findByDescripcionRol", query = "SELECT r FROM Rol r WHERE r.descripcionRol = :descripcionRol")})
 public class Rol extends EntityObject implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_rol")
-    private Long idRol;
+    private Integer idRol;
     @Size(max = 30)
     @Column(name = "nombre_rol")
     private String nombreRol;
-    @Lob
+    @Size(max = 100)
     @Column(name = "descripcion_rol")
-    private Object descripcionRol;
-    @OneToMany(mappedBy = "idRol")
-    private List<Usuario> usuarioList;
+    private String descripcionRol;
 
     public Rol() {
     }
 
-    public Rol(Long idRol) {
+    public Rol(Integer idRol) {
         this.idRol = idRol;
     }
 
-    public Long getIdRol() {
+    public Integer getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(Long idRol) {
+    public void setIdRol(Integer idRol) {
         this.idRol = idRol;
     }
 
@@ -67,21 +67,12 @@ public class Rol extends EntityObject implements Serializable {
         this.nombreRol = nombreRol;
     }
 
-    public Object getDescripcionRol() {
+    public String getDescripcionRol() {
         return descripcionRol;
     }
 
-    public void setDescripcionRol(Object descripcionRol) {
+    public void setDescripcionRol(String descripcionRol) {
         this.descripcionRol = descripcionRol;
-    }
-
-    @XmlTransient
-    public List<Usuario> getUsuarioList() {
-        return usuarioList;
-    }
-
-    public void setUsuarioList(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
     }
 
     @Override
@@ -106,7 +97,7 @@ public class Rol extends EntityObject implements Serializable {
 
     @Override
     public String toString() {
-        return "com.making.scm.persistence.Rol[ idRol=" + idRol + " ]";
+        return "com.making.scm.persistencia.Rol[ idRol=" + idRol + " ]";
     }
     
 }
