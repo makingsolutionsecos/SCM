@@ -5,9 +5,9 @@
  */
 package com.making.scm.negocio;
 
+import com.making.scm.accesoDatos.RespuestaRegistroDal;
 import com.making.scm.accesoDatos.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
-import com.making.scm.accesoDatos.RespuestaRegistroDal;
 import com.making.scm.persistencia.RespuestaRegistro;
 import javax.ejb.EJB;
 
@@ -18,7 +18,7 @@ import javax.ejb.EJB;
 public class AdministracionRegistroRespuesta {
 
     @EJB
-    private RespuestaRegistroDal respuestaRegistroFacade;
+    private RespuestaRegistroDal respuestaRegistroDal;
 
     public AdministracionRegistroRespuesta() {
     }
@@ -27,7 +27,7 @@ public class AdministracionRegistroRespuesta {
 
         RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
 
-        respuestaRegistroFacade.edit((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
+        respuestaRegistroDal.edit((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
 
     }
 
