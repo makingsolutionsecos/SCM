@@ -30,9 +30,9 @@ public class RegistroDal extends AbstractDal<Registro> {
         super(Registro.class);
     }
     
-    public List<Registro> findByUsuario(String numeroId) {
-        Query query = em.createNamedQuery("findByNumeroIdentificacion");
-        query.setParameter("numeroIdentificacion", numeroId);
-        return (Usuario) query.getSingleResult();
+    public List<Registro> findByUsuario(String usuarioId) {
+        Query query = em.createNamedQuery("findByUsuario");
+        query.setParameter("findByUsuario", usuarioId);
+        return query.getResultList();
     }
 }
