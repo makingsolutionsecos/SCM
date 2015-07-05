@@ -6,9 +6,11 @@
 package com.making.scm.accesoDatos;
 
 import com.making.scm.persistencia.Registro;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,4 +30,9 @@ public class RegistroDal extends AbstractDal<Registro> {
         super(Registro.class);
     }
     
+    public List<Registro> findByUsuario(String numeroId) {
+        Query query = em.createNamedQuery("findByNumeroIdentificacion");
+        query.setParameter("numeroIdentificacion", numeroId);
+        return (Usuario) query.getSingleResult();
+    }
 }
