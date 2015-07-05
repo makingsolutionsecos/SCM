@@ -33,6 +33,16 @@ public class AdministracionCuenta {
      */
     public UsuarioDto obtenerUsuarioPorIdentificacion(String identificacion) {
         UsuarioDto usuario = null;
+        UsuarioDal usuarioDal = new UsuarioDal();
+        
+        //Lista todos lo elementos de la base de datos
+        Usuario usuariosDB = usuarioDal.findByIdentificacion(identificacion);
+        
+        //Mapper de la entidad
+        UsuarioMapper usuarioMapper = new UsuarioMapper();
+        
+        //Mapea el elemento
+        usuario = (UsuarioDto)usuarioMapper.entityToDto(usuariosDB);
 
         return usuario;
     }

@@ -9,6 +9,7 @@ import com.making.scm.persistencia.Usuario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,6 +17,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class UsuarioDal extends AbstractDal<Usuario> {
+
     @PersistenceContext(unitName = "com.making-PU")
     private EntityManager em;
 
@@ -27,5 +29,10 @@ public class UsuarioDal extends AbstractDal<Usuario> {
     public UsuarioDal() {
         super(Usuario.class);
     }
-    
+
+    public Usuario findByIdentificacion(String numeroId) {
+        Query query = em.createNamedQuery("findByNumeroIdentificacion");
+        query.setParameter("numeroIdentificacion", numeroId);
+        return (Usuario) query.getSingleResult();
+    }
 }
