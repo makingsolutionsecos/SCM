@@ -18,21 +18,34 @@
         <p:layout fullPage="true">
             <p:layoutUnit position="north" size="65" header="Template">
                 <h:form id="menuForm">
-                    <p:menubar>
-                        <p:menuitem value="Home" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="SubMenu">
-                            <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" />
-                        </p:submenu>
-                    </p:menubar>
+                    <table width="100%">
+                        <tr>
+                            <td width="50%">
+                                <p:menubar style="border: none">
+                                    <p:menuitem value="Home" outcome="/home" icon="ui-icon-home"/>
+                                    <p:submenu label="SubMenu">
+                                        <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" />
+                                    </p:submenu>
+                                </p:menubar>
+                            </td>
+                            <td align="left">
+                                CSM
+                            </td>
+                            <td align="right">
+                                <h:link outcome="/index" value="Cerrar Sesion" />
+                            </td>
+                        </tr>
+                    </table>
+
                 </h:form>
             </p:layoutUnit>
             <p:layoutUnit position="west" size="150" header="Menú">
                 <h:form> 
                     <p:menu>
-                        <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" icon="ui-icon-home"/>
-                        <p:menuitem value="Menu 1" url="#"/>
-                        <p:menuitem value="Menu 2" url="#"/>
+                        <p:menuitem value="Usuario" outcome="/usuario/List" icon="ui-icon-home"/>
+                        <p:menuitem value="Preguntas" outcome="/pregunta/List"/>
                         <p:menuitem value="Menu 3" url="#"/>
+                        <p:menuitem value="Menu 4" url="#"/>
                     </p:menu>
                 </h:form>
             </p:layoutUnit>
