@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<html xmlns="http://www.w3.org/1999/xhtml"      
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="body">
-            <h:form id="UsuarioListForm">
-                <center><b>APLICACIÓN SCM(SISTEMA DE CONTROL DE MIGRAÑA)</b></center>
-            </h:form>
-        </ui:define>
-    </ui:composition>
+    <h:head>
+        <title>SCM</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="UsuarioListForm">
+            <br/><br/><br/><br/>
+            <center>
+                <h2><div style="color: orange;">SISTEMA DE CONTROL DE MIGRA&Ntilde;A</div></h2>                  
+                <br/><br/><br/>
+                <p:panelGrid columns="2" >
+                    <h3>Seleccione tipo de usuario</h3>
+                    <p:selectOneMenu id="idRol" value="#{homeManagedBean.idRol}" style="size: 200px;">
+                        <f:selectItem itemValue="1" itemLabel="Doctor"/>
+                        <f:selectItem itemValue="2" itemLabel="Administrador"/>
+                    </p:selectOneMenu>
+                </p:panelGrid>                
+                <br/><br/>
+                <p:commandButton value="Autenticar" actionListener="#{homeManagedBean.redirigirAutenticacion()}"/>
+            </center>
+        </h:form>
+    </h:body>
 </html>
