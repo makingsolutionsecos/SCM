@@ -4,15 +4,13 @@ import com.making.scm.controlador.RegistroServiceBeanLocal;
 import com.making.scm.controlador.UsuarioServiceBeanLocal;
 import com.making.scm.dto.RegistroDto;
 import com.making.scm.dto.UsuarioDto;
-import com.making.scm.negocio.usuario.UsuarioServiceBeanLocal;
+
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import java.util.List;
@@ -47,9 +45,7 @@ public class UsuarioManagedBean implements Serializable {
         registroServiceBeanLocal.findByUsuario("1");
     }
     
-    public static void  listarUsuarios(){
-       
-    }   
+   
 
     public void listarUsuarios() {
         try {
