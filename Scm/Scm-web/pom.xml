@@ -63,7 +63,8 @@
             <artifactId>ui-lightness</artifactId>
             <version>1.0.10</version>
         </dependency>	
-        <!-- Shiro -->
+
+         <!-- Shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>

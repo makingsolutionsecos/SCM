@@ -4,16 +4,32 @@ import com.making.scm.accesoDatos.UsuarioDal;
 import com.making.scm.accesoDatos.mappers.UsuarioMapper;
 import com.making.scm.dto.UsuarioDto;
 import com.making.scm.persistencia.Usuario;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  * Clase que interactúa con la administración de usuarios del sistema (Doctores
  * y pacientes).
  *
- * @author Jimmy
+ * @author making
  */
-public class AdministracionCuenta {
+@Stateless
+public class AdministracionCuenta implements Serializable{
+
+    @EJB
+    private UsuarioDal usuarioDal;
+
+    public AdministracionCuenta() {
+    }
+
+    @PostConstruct
+    public void init() {
+
+    }
 
     /**
      * Método para insertar un usuario en el sistema.
@@ -33,16 +49,15 @@ public class AdministracionCuenta {
      */
     public UsuarioDto obtenerUsuarioPorIdentificacion(String identificacion) {
         UsuarioDto usuario = null;
-        UsuarioDal usuarioDal = new UsuarioDal();
-        
+
         //Lista todos lo elementos de la base de datos
         Usuario usuariosDB = usuarioDal.findByIdentificacion(identificacion);
-        
+
         //Mapper de la entidad
         UsuarioMapper usuarioMapper = new UsuarioMapper();
-        
+
         //Mapea el elemento
-        usuario = (UsuarioDto)usuarioMapper.entityToDto(usuariosDB);
+        usuario = (UsuarioDto) usuarioMapper.entityToDto(usuariosDB);
 
         return usuario;
     }
@@ -65,20 +80,19 @@ public class AdministracionCuenta {
      * @return
      */
     public List<UsuarioDto> obtenerUsuarios() {
-       List<UsuarioDto> listaUsuarios = new ArrayList<UsuarioDto>();
-        UsuarioDal usuarioDal = new UsuarioDal();
-        
+        List<UsuarioDto> listaUsuarios = new ArrayList<UsuarioDto>();
+
         //Lista todos lo elementos de la base de datos
         List<Usuario> listaUsuariosDB = usuarioDal.findAll();
-        
+
         //Mapper de la entidad
         UsuarioMapper usuarioMapper = new UsuarioMapper();
-        
+
         //Mapea cada elemento de la lista
-        for(Usuario  usuario: listaUsuariosDB){
-            listaUsuarios.add((UsuarioDto)usuarioMapper.entityToDto(usuario));
+        for (Usuario usuario : listaUsuariosDB) {
+            listaUsuarios.add((UsuarioDto) usuarioMapper.entityToDto(usuario));
         }
-        
+
         //Retorna la lista
         return listaUsuarios;
     }

@@ -32,12 +32,12 @@ public class UsuarioDal extends AbstractDal<Usuario> {
     
   /**
    * Busca usuario por la identificación
-   * @param numeroId
+   * @param numeroIdentificacion
    * @return Usuario
    */  
-    public Usuario findByIdentificacion(String numeroId) {
-        Query query = em.createNamedQuery("findByNumeroIdentificacion");
-        query.setParameter("numeroIdentificacion", numeroId);
+    public Usuario findByIdentificacion(String numeroIdentificacion) {
+        Query query = em.createNamedQuery("Usuario.findByNumeroIdentificacion", Usuario.class);
+        query.setParameter("numeroIdentificacion", numeroIdentificacion);
         return (Usuario) query.getSingleResult();
     }
 }

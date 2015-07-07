@@ -23,11 +23,6 @@ public class RespuestaDto extends Dto{
     private String respuesta;
 
     /**
-     * Texto de la respuesta
-     */
-    private String respuestaTexto;
-
-    /**
      * @return the id
      */
     public Long getId() {

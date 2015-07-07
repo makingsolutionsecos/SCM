@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.negocio.usuario;
+package com.making.scm.controlador;
 
 import com.making.scm.accesoDatos.UsuarioDal;
 import com.making.scm.accesoDatos.mappers.UsuarioMapper;
