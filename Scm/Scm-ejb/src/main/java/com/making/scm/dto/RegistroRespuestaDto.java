@@ -1,5 +1,7 @@
 package com.making.scm.dto;
 
+import java.util.List;
+
 /**
  * clase que representa el registro de una respuesta del usuario
  *
@@ -20,12 +22,12 @@ public class RegistroRespuestaDto extends Dto{
     /**
      * Opcion de respuesta asociada al registro del ingreso de la respuesta del usuario
      */
-    private RespuestaDto respuesta;
+    private List<RespuestaDto> respuesta;
     
     /**
      * Pregunta asociada a la respuesta ingresada por el usuario
      */
-    private PreguntaDto pregunta;
+    private List<PreguntaDto> pregunta;
     
     /**
      * Texto de la respuesta igresada por el usuario en caaso que no se encuentre en las opciones de respuesta
