@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.making.scm.negocio.usuario;
+package com.making.scm.controlador;
 
 import com.making.scm.dto.UsuarioDto;
 import javax.ejb.Local;
@@ -18,7 +18,5 @@ public interface UsuarioServiceBeanLocal {
     public void guardarUsuario(UsuarioDto usuarioDto);
     public void modificarUsuario(UsuarioDto UsuarioDto);
     public void eliminarUsuario(UsuarioDto UsuarioDto);
-    public void consultarUsuario(UsuarioDto UsuarioDto);
-    
-    
+    public void consultarUsuario(UsuarioDto UsuarioDto);   
 }
