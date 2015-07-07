@@ -7,30 +7,32 @@ import java.util.List;
  *
  * @author jorgealfonsobeltran
  */
-public class RegistroRespuestaDto extends Dto{
-    
+public class RegistroRespuestaDto extends Dto {
+
     /**
      * Identificador unico del registro de la respuesta ingresada por el usuario
      */
     private Long id;
-    
+
     /**
      * Registro asociado a la respuesta del usuario
      */
     private RegistroDto registro;
-    
+
     /**
-     * Opcion de respuesta asociada al registro del ingreso de la respuesta del usuario
+     * Opcion de respuesta asociada al registro del ingreso de la respuesta del
+     * usuario
      */
-    private List<RespuestaDto> respuesta;
-    
+    private RespuestaDto respuesta;
+
     /**
      * Pregunta asociada a la respuesta ingresada por el usuario
      */
-    private List<PreguntaDto> pregunta;
-    
+    private PreguntaDto pregunta;
+
     /**
-     * Texto de la respuesta igresada por el usuario en caaso que no se encuentre en las opciones de respuesta
+     * Texto de la respuesta igresada por el usuario en caaso que no se
+     * encuentre en las opciones de respuesta
      */
     private String texto;
 
@@ -62,30 +64,18 @@ public class RegistroRespuestaDto extends Dto{
         this.registro = registro;
     }
 
-    /**
-     * @return the respuesta
-     */
     public RespuestaDto getRespuesta() {
         return respuesta;
     }
 
-    /**
-     * @param respuesta the respuesta to set
-     */
     public void setRespuesta(RespuestaDto respuesta) {
         this.respuesta = respuesta;
     }
 
-    /**
-     * @return the pregunta
-     */
     public PreguntaDto getPregunta() {
         return pregunta;
     }
 
-    /**
-     * @param pregunta the pregunta to set
-     */
     public void setPregunta(PreguntaDto pregunta) {
         this.pregunta = pregunta;
     }
