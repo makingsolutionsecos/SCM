@@ -23,7 +23,7 @@ public class ApiKeyReader extends Reader {
             String osName = System.getProperty("os.name");
             if(osName.contains("Mac OS") || osName.contains("linux")) {
                 reader = new FileReader("/Users/camilomarroquin/apiKey-6HXSABEVR2KTICIOBAJHMNWSO.properties");
-            } else if(osName.contains("windows")) {
+            } else if(osName.contains("Windows")) {
                 reader = new FileReader("C:\\llave/apiKey-6HXSABEVR2KTICIOBAJHMNWSO.properties");
             } else {
                 throw new RuntimeException("Unrecognized OS: " + osName);
