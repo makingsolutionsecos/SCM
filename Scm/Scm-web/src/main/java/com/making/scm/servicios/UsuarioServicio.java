@@ -9,6 +9,7 @@ import com.making.scm.dto.UsuarioDto;
 import com.making.scm.negocio.AdministracionCuenta;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.PathParam;
@@ -28,13 +29,16 @@ public class UsuarioServicio {
 
     @Context
     private UriInfo context;
-
+    
+    @EJB
+    private AdministracionCuenta administracionCuenta;
     /**
      * Creates a new instance of UsuarioServicio
      */
     public UsuarioServicio() {
     }
-
+    
+    
     /**
      * Retrieves representation of an instance of com.making.scm.servicios.UsuarioServicio
      * @return an instance of java.lang.String
@@ -45,7 +49,6 @@ public class UsuarioServicio {
     public UsuarioDto getJson(@PathParam("identificacion")int id) {
         //TODO return proper representation object
         List<UsuarioDto> usuario=new ArrayList<UsuarioDto>();
-        AdministracionCuenta administracionCuenta=new AdministracionCuenta();
         usuario=administracionCuenta.obtenerUsuarios();
         return usuario.get(1);
     }

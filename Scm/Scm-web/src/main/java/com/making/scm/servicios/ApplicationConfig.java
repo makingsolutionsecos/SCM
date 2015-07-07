@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author G40
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("servicios")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -29,6 +29,8 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(com.making.scm.autenticaService.AdminService.class);
+        resources.add(com.making.scm.autenticaService.DoctorService.class);
         resources.add(com.making.scm.servicios.RegistroServicio.class);
         resources.add(com.making.scm.servicios.UsuarioServicio.class);
     }
