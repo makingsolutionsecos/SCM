@@ -29,32 +29,37 @@ public class UsuarioServicio {
 
     @Context
     private UriInfo context;
-    
+
     @EJB
     private AdministracionCuenta administracionCuenta;
+
     /**
      * Creates a new instance of UsuarioServicio
      */
     public UsuarioServicio() {
     }
-    
-    
+
     /**
-     * Retrieves representation of an instance of com.making.scm.servicios.UsuarioServicio
+     * Retrieves representation of an instance of
+     * com.making.scm.servicios.UsuarioServicio
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Produces("application/json")
     @Path("identificacion/{identificacion}")
-    public UsuarioDto getJson(@PathParam("identificacion")int id) {
+    public UsuarioDto getJson(@PathParam("identificacion") int id) {
         //TODO return proper representation object
-        List<UsuarioDto> usuario=new ArrayList<UsuarioDto>();
-        usuario=administracionCuenta.obtenerUsuarios();
-        return usuario.get(1);
+//        List<UsuarioDto> usuario = new ArrayList<UsuarioDto>();
+        UsuarioDto usuario = new UsuarioDto();
+//        usuario=administracionCuenta.obtenerUsuarios();
+        usuario = administracionCuenta.obtenerUsuarioPorIdentificacion(Integer.toString(id));
+        return usuario;
     }
 
     /**
      * PUT method for updating or creating an instance of UsuarioServicio
+     *
      * @param content representation for the resource
      * @return an HTTP response with content of the updated or created resource.
      */
