@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistroEditDlg" widgetVar="RegistroEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRegistroTitle}">
+            <h:form id="RegistroEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registroController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRegistroLabel_idRegistro}" for="idRegistro" />
+                        <p:inputText id="idRegistro" value="#{registroController.selected.idRegistro}" title="#{bundle.EditRegistroTitle_idRegistro}" required="true" requiredMessage="#{bundle.EditRegistroRequiredMessage_idRegistro}"/>
+                        <p:outputLabel value="#{bundle.EditRegistroLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy HH:mm:ss" value="#{registroController.selected.fechaRegistro}" title="#{bundle.EditRegistroTitle_fechaRegistro}" required="true" requiredMessage="#{bundle.EditRegistroRequiredMessage_fechaRegistro}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRegistroLabel_idUsuario}" for="idUsuario" />
+                        <p:selectOneMenu id="idUsuario" value="#{registroController.selected.idUsuario}" required="true" requiredMessage="#{bundle.EditRegistroRequiredMessage_idUsuario}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="idUsuarioItem"
+                                           itemValue="#{idUsuarioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{registroController.update}" value="#{bundle.Save}" update="display,:RegistroListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RegistroEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RegistroEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
