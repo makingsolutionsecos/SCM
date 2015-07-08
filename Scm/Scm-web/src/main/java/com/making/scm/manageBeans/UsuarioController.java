@@ -51,11 +51,10 @@ public class UsuarioController implements Serializable {
              return usuarioDal;
     }
      public void listarUsuarios() {
-        try {
-            //usuarios=usuarioServiceBeanLocal.findAll();
+        try {            
             FacesContext context = FacesContext.getCurrentInstance();
             ServletContext servletContext= (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
-            context.getExternalContext().redirect(servletContext.getContextPath()+ "/usuario/List.xhtml");
+            context.getExternalContext().redirect(servletContext.getContextPath()+ "/faces/usuario/List.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }

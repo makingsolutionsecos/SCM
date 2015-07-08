@@ -9,7 +9,7 @@
     <ui:composition template="/template.xhtml">
 
 
-        <ui:define name="title">
+        <ui:define name="Usuarios">
             <h:outputText value="#{bundle.ListUsuarioTitle}"></h:outputText>
         </ui:define>
 
@@ -35,17 +35,17 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioTitle_apellidoUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidoUsuario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_fechaNacimiento}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaNacimiento}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_genero}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.genero}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -55,22 +55,18 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioTitle_genero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.genero}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_numeroIdentificacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.numeroIdentificacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_idUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idUsuario}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_apellidoUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.apellidoUsuario}"/>
-                        </p:column>
+                        </p:column>                        
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_direccion}"/>
@@ -82,24 +78,12 @@
                                 <h:outputText value="#{bundle.ListUsuarioTitle_correo}"/>
                             </f:facet>
                             <h:outputText value="#{item.correo}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_contrasena}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.contrasena}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_idCloud}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idCloud}"/>
-                        </p:column>
+                        </p:column>                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_idRol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idRol}"/>
+                            <h:outputText value="#{item.idRol.nombreRol}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>

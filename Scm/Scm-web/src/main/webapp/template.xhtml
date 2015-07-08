@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title><ui:insert name="title">Titulo</ui:insert></title>
+        <title><ui:insert name="title">SCM</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
     </h:head>
@@ -16,7 +16,7 @@
         <p:growl id="growl" life="3000" />
 
         <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="65" header="Template">
+            <p:layoutUnit position="north" size="65" header="SISTEMA DE CONTROL DE MIGRA&Ntilde;A">
                 <h:form id="menuForm">
                     <table width="100%">
                         <tr>
@@ -24,7 +24,8 @@
                                 <p:menubar style="border: none">
                                     <p:menuitem value="Home" outcome="/home" icon="ui-icon-home"/>
                                     <p:submenu label="SubMenu">
-                                        <p:menuitem value="Preguntas" outcome="/pregunta/List" />
+                                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
+                                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
                                     </p:submenu>
                                 </p:menubar>
                             </td>
@@ -42,10 +43,8 @@
             <p:layoutUnit position="west" size="150" header="Menú">
                 <h:form> 
                     <p:menu>
-                        <p:menuitem value="Preguntas" outcome="/pregunta/List"/>
-                        <p:menuitem value="Menu 2" url="#"/>
-                        <p:menuitem value="Menu 3" url="#"/>
-                        <p:menuitem value="Menu 4" url="#"/>
+                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
+                        <p:menuitem value="Pacientes" url="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>                       
                     </p:menu>
                 </h:form>
             </p:layoutUnit>
