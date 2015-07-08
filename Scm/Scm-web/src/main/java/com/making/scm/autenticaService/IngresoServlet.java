@@ -5,7 +5,7 @@
  */
 package com.making.scm.autenticaService;
 
-import com.making.scm.manageBeans.UsuarioManagedBean;
+import com.making.scm.manageBeans.UsuarioController;
 import com.making.scm.manageBeans.util.JsfUtil;
 import java.io.IOException;
 import javax.el.ELContext;
@@ -27,7 +27,7 @@ public class IngresoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         FacesContext facesContext = JsfUtil.getFacesContext(req, resp);
-        UsuarioManagedBean beanInst = (UsuarioManagedBean) findBean("usuarioManagedBean", facesContext);
+        UsuarioController beanInst = (UsuarioController) findBean("usuarioController", facesContext);
         beanInst.listarUsuarios();
     }
 
