@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="RegistroViewDlg" widgetVar="RegistroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRegistroTitle}">
+        <p:dialog  id="RegistroViewDlg" widgetVar="RegistroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRegistroTitle}">
             <h:form id="RegistroViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{registroController.selected != null}">
