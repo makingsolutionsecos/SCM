@@ -26,7 +26,7 @@ import javax.servlet.ServletContext;
 public class RespuestaRegistroController implements Serializable {
 
     @EJB
-    private RespuestaRegistroDal ejbFacade;
+    private com.making.scm.accesoDatos.RespuestaRegistroDal respuestaRegistroDal;
     private List<RespuestaRegistro> items = null;
     private RespuestaRegistro selected;
 
@@ -48,7 +48,7 @@ public class RespuestaRegistroController implements Serializable {
     }
 
     private RespuestaRegistroDal getFacade() {
-        return ejbFacade;
+        return respuestaRegistroDal;
     }
 
     public RespuestaRegistro prepareCreate() {
@@ -161,7 +161,7 @@ public class RespuestaRegistroController implements Serializable {
     }
 
     public void consultarRegistroRespuesta(Long idRegistro) {
-        items = ejbFacade.findByIdRegistro(idRegistro);
+        items = respuestaRegistroDal.findByIdRegistro(idRegistro);
         try {
             FacesContext context = FacesContext.getCurrentInstance();
             ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();

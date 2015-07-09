@@ -26,35 +26,24 @@
 
                        
 
+                        
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idRegistroRespuesta}"/>
+                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idPregunta}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idRegistroRespuesta}"/>
+                            <h:outputText value="#{item.idPregunta.pregunta}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idRespuesta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRespuesta.respuesta}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRespuestaRegistroTitle_textoOtro}"/>
                             </f:facet>
                             <h:outputText value="#{item.textoOtro}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idRespuesta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idRespuesta}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idRegistro}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idRegistro}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaRegistroTitle_idPregunta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idPregunta}"/>
                         </p:column>
                         <f:facet name="footer">                           
                             
