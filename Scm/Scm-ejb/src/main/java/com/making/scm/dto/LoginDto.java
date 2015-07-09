@@ -1,33 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.making.scm.dto;
 
-import java.util.HashMap;
+import java.util.Objects;
 
 /**
  *
  * @author sforerop
  */
 public class LoginDto {
-    
+
     /**
      * nombre de usuario para iniciar session
      */
     private String nombreUsuario;
-    
+
     /**
      * Contraseña del usuario para iniciar session
      */
     private String contraseniaUsuario;
-    
-    HashMap<String, String> hashMapLogin;
 
-    
+    /**
+     * Códigio hash
+     */
+    private int codigoHash;
+
     /**
      * get nombre de usuaro
+     *
      * @return String nombreUsuario
      */
     public String getNombreUsuario() {
@@ -36,7 +34,8 @@ public class LoginDto {
 
     /**
      * Set nombre de usuario
-     * @param nombreUsuario 
+     *
+     * @param nombreUsuario
      */
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -44,7 +43,8 @@ public class LoginDto {
 
     /**
      * get contraseña usuario
-     * @return 
+     *
+     * @return
      */
     public String getContraseniaUsuario() {
         return contraseniaUsuario;
@@ -52,26 +52,43 @@ public class LoginDto {
 
     /**
      * set contraseña usuario
-     * @param contraseniaUsuario 
+     *
+     * @param contraseniaUsuario
      */
     public void setContraseniaUsuario(String contraseniaUsuario) {
         this.contraseniaUsuario = contraseniaUsuario;
     }
 
-    /**
-     * get hashmap login
-     * @return 
-     */
-    public HashMap<String, String> getHashMapLogin() {
-        return hashMapLogin;
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.contraseniaUsuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LoginDto other = (LoginDto) obj;
+        return true;
     }
 
     /**
-     * set hashmap login
-     * @param hashMapLogin 
+     * @return the hashCode
      */
-    public void setHashMapLogin(HashMap<String, String> hashMapLogin) {
-        this.hashMapLogin = hashMapLogin;
-    }  
-    
+    public int getCodigoHash() {
+        return codigoHash;
+    }
+
+    /**
+     * @param codigoHash the hashCode to set
+     */
+    public void setCodigoHash(int codigoHash) {
+        this.codigoHash = codigoHash;
+    }
 }
