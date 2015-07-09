@@ -29,6 +29,7 @@ public class RolController implements Serializable {
     private Rol selected;
 
     public RolController() {
+        selected= new Rol();
     }
 
     public Rol getSelected() {
@@ -121,7 +122,7 @@ public class RolController implements Serializable {
     public static class RolControllerConverter implements Converter {
 
         @Override
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {         
             if (value == null || value.length() == 0) {
                 return null;
             }
