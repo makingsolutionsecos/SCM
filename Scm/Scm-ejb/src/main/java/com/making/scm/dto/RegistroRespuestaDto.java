@@ -35,6 +35,8 @@ public class RegistroRespuestaDto extends Dto {
      * encuentre en las opciones de respuesta
      */
     private String texto;
+    
+    private int hashCode;
 
     /**
      * @return the id
@@ -93,4 +95,28 @@ public class RegistroRespuestaDto extends Dto {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
+    /**
+     * get Hashcode
+     * @return 
+     */
+    public int getHashCode() {
+        return hashCode;
+    }
+
+    /**
+     * set Hashcode
+     * @param hashCode 
+     */
+    public void setHashCode(int hashCode) {
+        this.hashCode = hashCode;
+    }
+
+    @Override
+    public int hashCode() {
+        int  variable = 13;
+        variable = 7 * this.getId().hashCode();
+        return variable;
+    }    
+
 }

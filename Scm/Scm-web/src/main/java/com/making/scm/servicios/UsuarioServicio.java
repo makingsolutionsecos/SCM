@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.making.scm.servicios;
 
+import com.making.scm.dto.LoginDto;
 import com.making.scm.dto.UsuarioDto;
 import com.making.scm.negocio.AdministracionCuenta;
-import java.util.ArrayList;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -16,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 
@@ -43,6 +38,7 @@ public class UsuarioServicio {
      * Retrieves representation of an instance of
      * com.making.scm.servicios.UsuarioServicio
      *
+     * @param id
      * @return an instance of java.lang.String
      */
     @GET
@@ -58,10 +54,25 @@ public class UsuarioServicio {
     }
 
     /**
+     * Método que permite autenticar un usuario.
+     *
+     * @param login Objeto que debe contener la identificación y la clave.
+     * @return UsuarioDto si es autenticado.
+     */
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    @Path("autenticacion/")
+    public UsuarioDto getUsuarioAutenticado(LoginDto login) {
+        System.out.println(login.getContraseniaUsuario());
+        UsuarioDto usuario;
+        usuario = administracionCuenta.autenticarUsuario(login);
+        return usuario;
+    }
+
+    /**
      * PUT method for updating or creating an instance of UsuarioServicio
      *
-     * @param content representation for the resource
-     * @return an HTTP response with content of the updated or created resource.
      */
     @PUT
     @Consumes("application/json")
