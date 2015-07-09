@@ -5,6 +5,8 @@
  */
 package com.making.scm.dto;
 
+import java.util.HashMap;
+
 /**
  *
  * @author sforerop
@@ -20,6 +22,8 @@ public class LoginDto {
      * Contraseña del usuario para iniciar session
      */
     private String contraseniaUsuario;
+    
+    HashMap<String, String> hashMapLogin;
 
     
     /**
@@ -53,7 +57,21 @@ public class LoginDto {
     public void setContraseniaUsuario(String contraseniaUsuario) {
         this.contraseniaUsuario = contraseniaUsuario;
     }
-    
-    
+
+    /**
+     * get hashmap login
+     * @return 
+     */
+    public HashMap<String, String> getHashMapLogin() {
+        return hashMapLogin;
+    }
+
+    /**
+     * set hashmap login
+     * @param hashMapLogin 
+     */
+    public void setHashMapLogin(HashMap<String, String> hashMapLogin) {
+        this.hashMapLogin = hashMapLogin;
+    }  
     
 }
