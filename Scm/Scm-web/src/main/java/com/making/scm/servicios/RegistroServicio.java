@@ -14,6 +14,7 @@ import com.making.scm.dto.UsuarioDto;
 import com.making.scm.enumeracion.GeneroEnum;
 import com.making.scm.negocio.AdministracionCuenta;
 import com.making.scm.negocio.AdministracionRegistroRespuesta;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,26 +50,6 @@ public class RegistroServicio {
     public RegistroServicio() {
     }
 
-    /**
-     * Retrieves representation of an instance of
-     * com.making.scm.manageBeans.RegistroServicio
-     *
-     * @return an instance of com.making.scm.dto.RegistroDto
-     */
-    @GET
-    @Produces("application/json")
-    public RegistroDto getJson() {
-        Date now = new Date();
-        //TODO return proper representation object
-        RegistroDto registro = new RegistroDto();
-        List<UsuarioDto> usuario = new ArrayList<UsuarioDto>();
-        registro.setFecha(now);
-        registro.setId(Long.valueOf(1));
-        AdministracionCuenta administracionCuenta = new AdministracionCuenta();
-        usuario = administracionCuenta.obtenerUsuarios();
-        registro.setUsuario(usuario.get(1));
-        return registro;
-    }
 
     /**
      * PUT method for updating or creating an instance of RegistroServicio
@@ -89,7 +70,7 @@ public class RegistroServicio {
      */
     @POST
     @Consumes("application/json")
-    public void postJson(RegistroRespuestaDto registroRespuestaDto) {
+    public void postJson(RegistroRespuestaDto registroRespuestaDto) throws ParseException {
         administracionRegistroRespuesta.guardarRegistroRespuestaCLiente(registroRespuestaDto);
     }
 

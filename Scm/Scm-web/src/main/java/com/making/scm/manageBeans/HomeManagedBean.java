@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -18,19 +19,17 @@ import javax.faces.context.FacesContext;
  * @author Your Name
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class HomeManagedBean {
 
     private int idRol;
     private boolean renderedMenuUsuario;
 
-    @PostConstruct
-    public void constructor() {
-        validarEntrada();
-    }
+   
 
     public void redirigirAutenticacion() {
         try {
+            renderedMenuUsuario = idRol == 1;
             if (idRol == 1) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.getExternalContext().redirect("webresources/doctor");
@@ -44,7 +43,7 @@ public class HomeManagedBean {
     }
 
     public void validarEntrada() {
-        renderedMenuUsuario = idRol == 1;
+        
     }
 
     public int getIdRol() {
