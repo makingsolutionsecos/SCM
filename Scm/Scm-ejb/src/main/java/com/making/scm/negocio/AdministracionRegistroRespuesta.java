@@ -10,11 +10,13 @@ import com.making.scm.accesoDatos.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
 import com.making.scm.persistencia.RespuestaRegistro;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Usuario
  */
+@Stateless
 public class AdministracionRegistroRespuesta {
 
     @EJB
@@ -24,10 +26,10 @@ public class AdministracionRegistroRespuesta {
     }
 
     public void guardarRegistroRespuestaCLiente(RegistroRespuestaDto registroRespuestaDto) {
-
-        RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
-
-        respuestaRegistroDal.edit((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
+        if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
+            RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
+            respuestaRegistroDal.edit((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
+        }
 
     }
 

@@ -11,6 +11,9 @@ import com.making.scm.dto.RegistroDto;
 import com.making.scm.dto.RegistroRespuestaDto;
 import com.making.scm.dto.RespuestaDto;
 import com.making.scm.persistencia.EntityObject;
+import com.making.scm.persistencia.Pregunta;
+import com.making.scm.persistencia.Registro;
+import com.making.scm.persistencia.Respuesta;
 import com.making.scm.persistencia.RespuestaRegistro;
 
 /**
@@ -38,7 +41,17 @@ public class RespuestaRegistroMapper implements IMapper {
 
     @Override
     public EntityObject dtoToEntity(Dto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        RegistroRespuestaDto registroRespuestaDto = (RegistroRespuestaDto) dto;
+        RespuestaRegistro respuestaRegistro = new RespuestaRegistro();
+        respuestaRegistro.setIdRegistroRespuesta(registroRespuestaDto.getId());
+        RegistroMapper registroMapper = new RegistroMapper();
+        respuestaRegistro.setIdRegistro((Registro) registroMapper.dtoToEntity(registroRespuestaDto.getRegistro()));
+        RespuestaMapper respuestaMapper = new RespuestaMapper();
+        respuestaRegistro.setIdRespuesta((Respuesta) respuestaMapper.dtoToEntity(registroRespuestaDto.getRespuesta()));
+        PreguntaMapper preguntaMapper = new PreguntaMapper();
+        respuestaRegistro.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(registroRespuestaDto.getPregunta()));
+        respuestaRegistro.setTextoOtro(registroRespuestaDto.getTexto());
+        return respuestaRegistro;
     }
 
 }

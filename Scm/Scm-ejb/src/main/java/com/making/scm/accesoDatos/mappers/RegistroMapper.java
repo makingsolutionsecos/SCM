@@ -36,7 +36,16 @@ public class RegistroMapper implements IMapper {
 
     @Override
     public EntityObject dtoToEntity(Dto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        RegistroDto registroDto = (RegistroDto) dto;        
+        Registro registro = new Registro();
+        registro.setAudioList(null);
+        registro.setFechaRegistro(registroDto.getFecha());
+        registro.setIdRegistro(registroDto.getId());
+        UsuarioMapper usuarioMapper = new UsuarioMapper();
+        registro.setIdUsuario((Usuario) usuarioMapper.dtoToEntity(registroDto.getUsuario()));
+        registro.setRespuestaConocimientoList(null);
+        registro.setRespuestaRegistroList(null);
+        return registro;
     }
 
 }
