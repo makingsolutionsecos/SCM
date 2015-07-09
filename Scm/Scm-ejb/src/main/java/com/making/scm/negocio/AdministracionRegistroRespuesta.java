@@ -26,10 +26,10 @@ public class AdministracionRegistroRespuesta {
     }
 
     public void guardarRegistroRespuestaCLiente(RegistroRespuestaDto registroRespuestaDto) {
-        if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
+       // if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
             RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
-            respuestaRegistroDal.edit((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
-        }
+            respuestaRegistroDal.create((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
+     //   }
 
     }
 
