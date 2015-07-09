@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.making.scm.accesoDatos;
 
 import com.making.scm.persistencia.Usuario;
@@ -40,6 +35,14 @@ public class UsuarioDal extends AbstractDal<Usuario> {
     public Usuario findByIdentificacion(String numeroIdentificacion) {
         Query query = em.createNamedQuery("Usuario.findByNumeroIdentificacion", Usuario.class);
         query.setParameter("numeroIdentificacion", numeroIdentificacion);
+        return (Usuario) query.getSingleResult();
+        //Usuario usuario = Util.getSingleResult((TypedQuery<Usuario>) query.getSingleResult());
+        //return usuario;
+    }
+
+    public Usuario findByNombreUsuario(String nombreUsuario) {
+        Query query = em.createNamedQuery("Usuario.findByNumeroIdentificacion", Usuario.class);
+        query.setParameter("nombreUsuario", nombreUsuario);
         return (Usuario) query.getSingleResult();
     }
 
