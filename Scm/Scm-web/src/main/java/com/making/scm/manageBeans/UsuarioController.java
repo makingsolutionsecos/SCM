@@ -64,7 +64,12 @@ public class UsuarioController implements Serializable {
     
     public void listarUsuariosByRol(int idRol) {
         try {
-            items = getFacade().findByRol(idRol);
+            if (idRol==3) {
+                items = getFacade().findByRol(idRol);
+            }
+            else{
+                items = getFacade().findAll();
+            }
             FacesContext context = FacesContext.getCurrentInstance();
             ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
             context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/usuario/List.xhtml");
