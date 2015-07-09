@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RespuestaRegistroCreateDlg" widgetVar="RespuestaRegistroCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRespuestaRegistroTitle}">
+            <h:form id="RespuestaRegistroCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{respuestaRegistroController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRespuestaRegistroLabel_idRegistroRespuesta}" for="idRegistroRespuesta" />
+                        <p:inputText id="idRegistroRespuesta" value="#{respuestaRegistroController.selected.idRegistroRespuesta}" title="#{bundle.CreateRespuestaRegistroTitle_idRegistroRespuesta}" required="true" requiredMessage="#{bundle.CreateRespuestaRegistroRequiredMessage_idRegistroRespuesta}"/>
+                        <p:outputLabel value="#{bundle.CreateRespuestaRegistroLabel_textoOtro}" for="textoOtro" />
+                        <p:inputText id="textoOtro" value="#{respuestaRegistroController.selected.textoOtro}" title="#{bundle.CreateRespuestaRegistroTitle_textoOtro}" />
+                        <p:outputLabel value="#{bundle.CreateRespuestaRegistroLabel_idRespuesta}" for="idRespuesta" />
+                        <p:selectOneMenu id="idRespuesta" value="#{respuestaRegistroController.selected.idRespuesta}" >
+                            <f:selectItems value="#{respuestaController.itemsAvailableSelectOne}"
+                                           var="idRespuestaItem"
+                                           itemValue="#{idRespuestaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateRespuestaRegistroLabel_idRegistro}" for="idRegistro" />
+                        <p:selectOneMenu id="idRegistro" value="#{respuestaRegistroController.selected.idRegistro}" >
+                            <f:selectItems value="#{registroController.itemsAvailableSelectOne}"
+                                           var="idRegistroItem"
+                                           itemValue="#{idRegistroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateRespuestaRegistroLabel_idPregunta}" for="idPregunta" />
+                        <p:selectOneMenu id="idPregunta" value="#{respuestaRegistroController.selected.idPregunta}" >
+                            <f:selectItems value="#{preguntaController.itemsAvailableSelectOne}"
+                                           var="idPreguntaItem"
+                                           itemValue="#{idPreguntaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{respuestaRegistroController.create}" value="#{bundle.Save}" update="display,:RespuestaRegistroListForm:datalist,:growl" oncomplete="handleSubmit(args,'RespuestaRegistroCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RespuestaRegistroCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

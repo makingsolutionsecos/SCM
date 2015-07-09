@@ -15,6 +15,7 @@
 
         <ui:define name="body">
             <h:form id="UsuarioListForm">
+                <p:outputLabel id="mensajePaciente"  style="color: #e33b06; font-weight: bold ;" value="El usuario no registra episodios" rendered="#{usuarioController.mensajeRendered}"/>
                 <p:panel header="#{bundle.ListUsuarioTitle}">
                     <p:dataTable id="datalist" value="#{usuarioController.items}" var="item"
                                  selectionMode="single" selection="#{usuarioController.selected}"
@@ -90,10 +91,11 @@
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":UsuarioViewForm" oncomplete="PF('UsuarioViewDialog').show()" disabled="#{empty usuarioController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":UsuarioEditForm" oncomplete="PF('UsuarioEditDialog').show()" disabled="#{empty usuarioController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{usuarioController.destroy}" update=":growl,datalist" disabled="#{empty usuarioController.selected}"/>
-                            <p:commandButton id="registroButton" icon="ui-icon-clipboard"  value="#{bundle.Registro}" actionListener="#{usuarioController.destroy}" update=":growl,datalist" disabled="#{empty usuarioController.selected}"/>
+                            <p:commandButton id="registroButton" icon="ui-icon-clipboard"  value="#{bundle.Registro}" actionListener="#{usuarioController.validarRegistro}" update=":growl,datalist,UsuarioListForm"/>
                         </f:facet>
-                    </p:dataTable>
+                    </p:dataTable>                    
                 </p:panel>
+				
             </h:form>
 
             <ui:include src="Create.xhtml"/>

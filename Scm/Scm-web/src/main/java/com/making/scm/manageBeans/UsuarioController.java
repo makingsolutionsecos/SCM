@@ -29,6 +29,7 @@ public class UsuarioController implements Serializable {
     private com.making.scm.accesoDatos.UsuarioDal usuarioDal;
     private List<Usuario> items = null;
     private Usuario selected;
+    private boolean mensajeRendered;
 
     public UsuarioController() {
     }
@@ -53,7 +54,7 @@ public class UsuarioController implements Serializable {
 
     public void listarUsuarios() {
         try {
-                FacesContext context = FacesContext.getCurrentInstance();
+            FacesContext context = FacesContext.getCurrentInstance();
             ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
             context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/usuario/List.xhtml");
         } catch (IOException ex) {
@@ -179,6 +180,29 @@ public class UsuarioController implements Serializable {
             }
         }
 
+    }
+
+    public void validarRegistro() {
+        if (selected.getIdRol().getIdRol().equals(3)) {
+            try {
+                mensajeRendered = false;
+                FacesContext context = FacesContext.getCurrentInstance();
+                ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
+                context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/registro/List.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            mensajeRendered = true;
+        }
+    }
+
+    public boolean isMensajeRendered() {
+        return mensajeRendered;
+    }
+
+    public void setMensajeRendered(boolean mensajeRendered) {
+        this.mensajeRendered = mensajeRendered;
     }
 
 }

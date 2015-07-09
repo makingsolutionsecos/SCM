@@ -6,9 +6,11 @@
 package com.making.scm.accesoDatos;
 
 import com.making.scm.persistencia.RespuestaRegistro;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,6 +18,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class RespuestaRegistroDal extends AbstractDal<RespuestaRegistro> {
+
     @PersistenceContext(unitName = "com.making-PU")
     private EntityManager em;
 
@@ -27,5 +30,10 @@ public class RespuestaRegistroDal extends AbstractDal<RespuestaRegistro> {
     public RespuestaRegistroDal() {
         super(RespuestaRegistro.class);
     }
-    
+
+    public List<RespuestaRegistro> findByIdRegistro(Long registroId) {
+        Query query = em.createNamedQuery("RespuestaRegistro.findByIdRegistro" , RespuestaRegistro.class);
+        query.setParameter("idRegistro", registroId);
+        return query.getResultList();
+    }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RespuestaRegistroViewDlg" widgetVar="RespuestaRegistroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRespuestaRegistroTitle}">
+            <h:form id="RespuestaRegistroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{respuestaRegistroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewRespuestaRegistroLabel_idRegistroRespuesta}"/>
+                        <h:outputText value="#{respuestaRegistroController.selected.idRegistroRespuesta}" title="#{bundle.ViewRespuestaRegistroTitle_idRegistroRespuesta}"/>
+                        <h:outputText value="#{bundle.ViewRespuestaRegistroLabel_textoOtro}"/>
+                        <h:outputText value="#{respuestaRegistroController.selected.textoOtro}" title="#{bundle.ViewRespuestaRegistroTitle_textoOtro}"/>
+                        <h:outputText value="#{bundle.ViewRespuestaRegistroLabel_idRespuesta}"/>
+                        <h:outputText value="#{respuestaRegistroController.selected.idRespuesta}" title="#{bundle.ViewRespuestaRegistroTitle_idRespuesta}"/>
+                        <h:outputText value="#{bundle.ViewRespuestaRegistroLabel_idRegistro}"/>
+                        <h:outputText value="#{respuestaRegistroController.selected.idRegistro}" title="#{bundle.ViewRespuestaRegistroTitle_idRegistro}"/>
+                        <h:outputText value="#{bundle.ViewRespuestaRegistroLabel_idPregunta}"/>
+                        <h:outputText value="#{respuestaRegistroController.selected.idPregunta}" title="#{bundle.ViewRespuestaRegistroTitle_idPregunta}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RespuestaRegistroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

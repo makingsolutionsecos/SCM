@@ -1,11 +1,9 @@
 package com.making.scm.manageBeans;
 
-import com.making.scm.accesoDatos.RegistroDal;
 import com.making.scm.accesoDatos.RespuestaRegistroDal;
-import com.making.scm.persistencia.Registro;
+import com.making.scm.persistencia.RespuestaRegistro;
 import com.making.scm.manageBeans.util.JsfUtil;
 import com.making.scm.manageBeans.util.JsfUtil.PersistAction;
-import com.making.scm.persistencia.RespuestaRegistro;
 import java.io.IOException;
 
 import java.io.Serializable;
@@ -15,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.el.ELContext;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -24,27 +21,23 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.servlet.ServletContext;
 
-@ManagedBean(name = "registroController")
+@ManagedBean(name = "respuestaRegistroController")
 @SessionScoped
-public class RegistroController implements Serializable {
+public class RespuestaRegistroController implements Serializable {
 
     @EJB
-    private com.making.scm.accesoDatos.RegistroDal registroDal;
+    private RespuestaRegistroDal ejbFacade;
+    private List<RespuestaRegistro> items = null;
+    private RespuestaRegistro selected;
 
-    @EJB
-    private com.making.scm.accesoDatos.RespuestaRegistroDal respuestaRegistroDal;
-    private List<Registro> items = null;
-    private Registro selected;
-    private RespuestaRegistro selectedRespuesta;
-
-    public RegistroController() {
+    public RespuestaRegistroController() {
     }
 
-    public Registro getSelected() {
+    public RespuestaRegistro getSelected() {
         return selected;
     }
 
-    public void setSelected(Registro selected) {
+    public void setSelected(RespuestaRegistro selected) {
         this.selected = selected;
     }
 
@@ -54,40 +47,36 @@ public class RegistroController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private RegistroDal getFacade() {
-        return registroDal;
+    private RespuestaRegistroDal getFacade() {
+        return ejbFacade;
     }
 
-    public Registro prepareCreate() {
-        selected = new Registro();
+    public RespuestaRegistro prepareCreate() {
+        selected = new RespuestaRegistro();
         initializeEmbeddableKey();
         return selected;
     }
 
-    private RespuestaRegistroDal getFacadeRespuesta() {
-        return respuestaRegistroDal;
-    }
-
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/properties").getString("RegistroCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("RespuestaRegistroCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/properties").getString("RegistroUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("RespuestaRegistroUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/properties").getString("RegistroDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("RespuestaRegistroDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<Registro> getItems() {
+    public List<RespuestaRegistro> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -122,24 +111,24 @@ public class RegistroController implements Serializable {
         }
     }
 
-    public List<Registro> getItemsAvailableSelectMany() {
+    public List<RespuestaRegistro> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<Registro> getItemsAvailableSelectOne() {
+    public List<RespuestaRegistro> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Registro.class)
-    public static class RegistroControllerConverter implements Converter {
+    @FacesConverter(forClass = RespuestaRegistro.class)
+    public static class RespuestaRegistroControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            RegistroController controller = (RegistroController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "registroController");
+            RespuestaRegistroController controller = (RespuestaRegistroController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "respuestaRegistroController");
             return controller.getFacade().find(getKey(value));
         }
 
@@ -160,24 +149,26 @@ public class RegistroController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Registro) {
-                Registro o = (Registro) object;
-                return getStringKey(o.getIdRegistro());
+            if (object instanceof RespuestaRegistro) {
+                RespuestaRegistro o = (RespuestaRegistro) object;
+                return getStringKey(o.getIdRegistroRespuesta());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Registro.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), RespuestaRegistro.class.getName()});
                 return null;
             }
         }
 
     }
 
-    public void consultarRegistroRespuesta() {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-        RespuestaRegistroController respuestaRegistroController
-                = (RespuestaRegistroController) FacesContext.getCurrentInstance().getApplication()
-                .getELResolver().getValue(elContext, null, "respuestaRegistroController");
-        respuestaRegistroController.consultarRegistroRespuesta(selected.getIdRegistro());
+    public void consultarRegistroRespuesta(Long idRegistro) {
+        items = ejbFacade.findByIdRegistro(idRegistro);
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
+            context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/respuestaRegistro/List.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
