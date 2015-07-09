@@ -53,7 +53,7 @@ public class UsuarioController implements Serializable {
 
     public void listarUsuarios() {
         try {
-            FacesContext context = FacesContext.getCurrentInstance();
+                FacesContext context = FacesContext.getCurrentInstance();
             ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
             context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/usuario/List.xhtml");
         } catch (IOException ex) {
