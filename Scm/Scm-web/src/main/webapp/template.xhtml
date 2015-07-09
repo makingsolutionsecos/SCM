@@ -24,8 +24,8 @@
                                 <p:menubar style="border: none">
                                     <p:menuitem value="Home" outcome="/home" icon="ui-icon-home"/>
                                     <p:submenu label="SubMenu">
-                                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
-                                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
+                                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}" action="#{usuarioController.listarUsuariosByRol(1)}"/>
+                                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}" action="#{usuarioController.listarUsuariosByRol(2)}"/>
                                     </p:submenu>
                                     <p:menuitem value="Registros" outcome="/registro/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
                                     <p:menuitem value="Preguntas" outcome="/pregunta/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
@@ -45,8 +45,8 @@
             <p:layoutUnit position="west" size="150" header="Menú">
                 <h:form> 
                     <p:menu>
-                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
-                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/> 
+                        <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}" action="#{usuarioController.listarUsuariosByRol(1)}"/>
+                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}" action="#{usuarioController.listarUsuariosByRol(2)}"/> 
                         <p:menuitem value="Registros" outcome="/registro/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
                         <p:menuitem value="Preguntas" outcome="/pregunta/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>                      
                     </p:menu>

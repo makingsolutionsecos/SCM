@@ -6,6 +6,7 @@
 package com.making.scm.accesoDatos;
 
 import com.making.scm.persistencia.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,15 +30,23 @@ public class UsuarioDal extends AbstractDal<Usuario> {
     public UsuarioDal() {
         super(Usuario.class);
     }
-    
-  /**
-   * Busca usuario por la identificación
-   * @param numeroIdentificacion
-   * @return Usuario
-   */  
+
+    /**
+     * Busca usuario por la identificación
+     *
+     * @param numeroIdentificacion
+     * @return Usuario
+     */
     public Usuario findByIdentificacion(String numeroIdentificacion) {
         Query query = em.createNamedQuery("Usuario.findByNumeroIdentificacion", Usuario.class);
         query.setParameter("numeroIdentificacion", numeroIdentificacion);
         return (Usuario) query.getSingleResult();
     }
+
+    public List<Usuario> findByRol(int idRol) {
+        Query query = em.createNamedQuery("Usuario.findByIdRol", Usuario.class);
+        query.setParameter("idRol", idRol);
+        return query.getResultList();
+    }
+
 }

@@ -25,7 +25,7 @@ import javax.servlet.ServletContext;
 @SessionScoped
 public class UsuarioController implements Serializable {
 
-     @EJB
+    @EJB
     private com.making.scm.accesoDatos.UsuarioDal usuarioDal;
     private List<Usuario> items = null;
     private Usuario selected;
@@ -48,13 +48,25 @@ public class UsuarioController implements Serializable {
     }
 
     private UsuarioDal getFacade() {
-             return usuarioDal;
+        return usuarioDal;
     }
-     public void listarUsuarios() {
-        try {            
+
+    public void listarUsuarios() {
+        try {
             FacesContext context = FacesContext.getCurrentInstance();
-            ServletContext servletContext= (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
-            context.getExternalContext().redirect(servletContext.getContextPath()+ "/faces/usuario/List.xhtml");
+            ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
+            context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/usuario/List.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void listarUsuariosByRol(int idRol) {
+        try {
+            items = getFacade().findByRol(idRol);
+            FacesContext context = FacesContext.getCurrentInstance();
+            ServletContext servletContext = (ServletContext) context.getCurrentInstance().getExternalContext().getContext();
+            context.getExternalContext().redirect(servletContext.getContextPath() + "/faces/usuario/List.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }
