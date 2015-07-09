@@ -27,13 +27,15 @@
                                         <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
                                         <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
                                     </p:submenu>
+                                    <p:menuitem value="Registros" outcome="/registro/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
+                                    <p:menuitem value="Preguntas" outcome="/pregunta/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
                                 </p:menubar>
                             </td>
                             <td align="left">
-                                CSM
+                                CSM 
                             </td>
                             <td align="right">
-                                <h:link outcome="/index" value="Cerrar Sesion" />
+                                <h:link outcome="/home" value="Cerrar Sesion" />
                             </td>
                         </tr>
                     </table>
@@ -44,7 +46,9 @@
                 <h:form> 
                     <p:menu>
                         <p:menuitem value="Usuarios" outcome="/usuario/List" rendered="#{homeManagedBean.renderedMenuUsuario}"/>
-                        <p:menuitem value="Pacientes" url="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>                       
+                        <p:menuitem value="Pacientes" outcome="/usuario/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/> 
+                        <p:menuitem value="Registros" outcome="/registro/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>
+                        <p:menuitem value="Preguntas" outcome="/pregunta/List" rendered="#{!homeManagedBean.renderedMenuUsuario}"/>                      
                     </p:menu>
                 </h:form>
             </p:layoutUnit>
