@@ -2,6 +2,7 @@ package com.making.scm.negocio;
 
 import com.making.scm.accesoDatos.UsuarioDal;
 import com.making.scm.accesoDatos.mappers.UsuarioMapper;
+import com.making.scm.dto.LoginDto;
 import com.making.scm.dto.UsuarioDto;
 import com.making.scm.persistencia.Usuario;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import javax.ejb.Stateless;
  * @author making
  */
 @Stateless
-public class AdministracionCuenta implements Serializable{
+public class AdministracionCuenta implements Serializable {
 
     @EJB
     private UsuarioDal usuarioDal;
@@ -60,6 +61,41 @@ public class AdministracionCuenta implements Serializable{
         usuario = (UsuarioDto) usuarioMapper.entityToDto(usuariosDB);
 
         return usuario;
+    }
+
+    /**
+     * Método que autentica un usuariio en el sistema.
+     *
+     * @param login objeto con el nombre de usuario y contraseña.
+     * @return el dto de usuario si es valido, de lo contrario nulo.
+     */
+    public UsuarioDto autenticarUsuario(LoginDto login) {
+
+        if (login == null) {
+           throw new SecurityException("No se especificaron las credenciales de inicio de sesión");
+        }
+        
+        int hash = login.hashCode();
+         System.out.println("CODIGO JOJOJOJO");
+        System.out.println(hash);
+        
+        if (hash != login.getCodigoHash()) {
+            throw new SecurityException();
+        }
+
+        Usuario usuario = usuarioDal.findByIdentificacion(login.getNombreUsuario());
+
+        if (usuario != null) {
+            if (usuario.getContrasena().equals(login.getContraseniaUsuario())) {
+
+                UsuarioMapper uMapper = new UsuarioMapper();
+                return (UsuarioDto) uMapper.entityToDto(usuario);
+            } else {
+                throw new SecurityException("Usuario o contraseña inválido.");
+            }
+        }
+
+        return null;
     }
 
     /**
