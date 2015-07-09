@@ -61,7 +61,7 @@ public class UsuarioController implements Serializable {
             Logger.getLogger(HomeManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     public void listarUsuariosByRol(int idRol) {
         try {
             items = getFacade().findByRol(idRol);

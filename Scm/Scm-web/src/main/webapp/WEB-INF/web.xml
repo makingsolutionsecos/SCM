@@ -54,6 +54,18 @@
         <servlet-name>autenticaServlet</servlet-name>
         <url-pattern>/webresources/autenticaServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>autenticaServletUsuario</servlet-name>
+        <servlet-class>com.making.scm.autenticaService.IngresoServletUsuario</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>autenticaServletUsuario</servlet-name>
+        <url-pattern>/webresources/autenticaServletUsuario</url-pattern>
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30

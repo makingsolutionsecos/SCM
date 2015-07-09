@@ -38,8 +38,9 @@ public class RolesAuthorizationFilter extends AuthorizationFilter {
     //TODO - complete JavaDoc
 
     @SuppressWarnings({"unchecked"})
+    @Override
     public boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws IOException {
-
+       
         final Subject subject = getSubject(request, response);
         final String[] rolesArray = (String[]) mappedValue;
  
@@ -53,7 +54,7 @@ public class RolesAuthorizationFilter extends AuthorizationFilter {
                 return true;
             }
         }
- 
+        
         return false;
     }
 
