@@ -8,6 +8,7 @@ import com.making.scm.persistencia.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -74,10 +75,9 @@ public class AdministracionCuenta implements Serializable {
         if (login == null) {
            throw new SecurityException("No se especificaron las credenciales de inicio de sesión");
         }
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(login.getNombreUsuario()+login.getContraseniaUsuario()+"Making2015");
         
-        int hash = login.hashCode();
-         System.out.println("CODIGO JOJOJOJO");
-        System.out.println(hash);
         
         if (hash != login.getCodigoHash()) {
             throw new SecurityException();

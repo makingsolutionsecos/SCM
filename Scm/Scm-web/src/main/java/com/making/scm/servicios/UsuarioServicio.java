@@ -13,6 +13,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -63,11 +64,11 @@ public class UsuarioServicio {
     @Consumes("application/json")
     @Produces("application/json")
     @Path("autenticacion/")
-    public UsuarioDto getUsuarioAutenticado(LoginDto login) {
+    public Response  postUsuarioAutenticado(LoginDto login) {
         System.out.println(login.getContraseniaUsuario());
         UsuarioDto usuario;
         usuario = administracionCuenta.autenticarUsuario(login);
-        return usuario;
+        return Response.status(200).build();
     }
 
     /**
