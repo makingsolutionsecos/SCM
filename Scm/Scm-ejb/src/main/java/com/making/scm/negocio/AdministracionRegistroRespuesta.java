@@ -9,6 +9,7 @@ import com.making.scm.accesoDatos.RespuestaRegistroDal;
 import com.making.scm.accesoDatos.mappers.RespuestaRegistroMapper;
 import com.making.scm.dto.RegistroRespuestaDto;
 import com.making.scm.persistencia.RespuestaRegistro;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -25,12 +26,14 @@ public class AdministracionRegistroRespuesta {
     public AdministracionRegistroRespuesta() {
     }
 
-    public void guardarRegistroRespuestaCLiente(RegistroRespuestaDto registroRespuestaDto) {
-       // if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
-            RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
+    public void guardarRegistroRespuestaCLiente(List<RegistroRespuestaDto> registroRespuestaDtos) {
+        // if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
+        RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
+        for (RegistroRespuestaDto registroRespuestaDto : registroRespuestaDtos) {
             respuestaRegistroDal.create((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
-     //   }
+        }
 
+     //   }
     }
 
 }

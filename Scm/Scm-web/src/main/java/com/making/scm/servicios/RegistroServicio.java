@@ -29,6 +29,7 @@ import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -70,8 +71,9 @@ public class RegistroServicio {
      */
     @POST
     @Consumes("application/json")
-    public void postJson(RegistroRespuestaDto registroRespuestaDto) throws ParseException {
-        administracionRegistroRespuesta.guardarRegistroRespuestaCLiente(registroRespuestaDto);
+    public Response postJson(List<RegistroRespuestaDto> registroRespuestaDtos) throws ParseException {
+        administracionRegistroRespuesta.guardarRegistroRespuestaCLiente(registroRespuestaDtos);
+        return Response.status(200).build();
     }
 
     @GET
