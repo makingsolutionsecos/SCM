@@ -34,10 +34,10 @@ public class RespuestaMapper implements IMapper {
     public EntityObject dtoToEntity(Dto dto) {
         RespuestaDto respuestaDto = (RespuestaDto) dto;
         Respuesta respuesta = new Respuesta();
-        PreguntaMapper preguntaMapper = new PreguntaMapper();
-        respuesta.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(respuestaDto.getPregunta()));
+//        PreguntaMapper preguntaMapper = new PreguntaMapper();
+//        respuesta.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(respuestaDto.getPregunta()));
         respuesta.setIdRespuesta(respuestaDto.getId());
-        respuesta.setRespuesta(respuestaDto.getRespuesta());
+//        respuesta.setRespuesta(respuestaDto.getRespuesta());
         return respuesta;
     }
 

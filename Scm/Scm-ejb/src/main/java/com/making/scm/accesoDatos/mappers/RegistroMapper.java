@@ -38,13 +38,13 @@ public class RegistroMapper implements IMapper {
     public EntityObject dtoToEntity(Dto dto) {
         RegistroDto registroDto = (RegistroDto) dto;        
         Registro registro = new Registro();
-        registro.setAudioList(null);
-        registro.setFechaRegistro(registroDto.getFecha());
+//        registro.setAudioList(null);
+//        registro.setFechaRegistro(registroDto.getFecha());
         registro.setIdRegistro(registroDto.getId());
-        UsuarioMapper usuarioMapper = new UsuarioMapper();
-        registro.setIdUsuario((Usuario) usuarioMapper.dtoToEntity(registroDto.getUsuario()));
-        registro.setRespuestaConocimientoList(null);
-        registro.setRespuestaRegistroList(null);
+//        UsuarioMapper usuarioMapper = new UsuarioMapper();
+//        registro.setIdUsuario((Usuario) usuarioMapper.dtoToEntity(registroDto.getUsuario()));
+//        registro.setRespuestaConocimientoList(null);
+//        registro.setRespuestaRegistroList(null);
         return registro;
     }
 

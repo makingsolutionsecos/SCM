@@ -27,7 +27,7 @@ public class PreguntaMapper implements IMapper {
         PreguntaDto preguntaDto = (PreguntaDto) dto;
         Pregunta pregunta = new Pregunta();
         pregunta.setIdPregunta(preguntaDto.getId());
-        pregunta.setPregunta(preguntaDto.getPregunta());
+//        pregunta.setPregunta(preguntaDto.getPregunta());
         
         return pregunta;
     }
