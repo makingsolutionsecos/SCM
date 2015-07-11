@@ -25,7 +25,7 @@ public class RespuestaRegistroMapper implements IMapper {
     @Override
     public Dto entityToDto(EntityObject entityObject) {
         RespuestaRegistro entity = (RespuestaRegistro) entityObject;
-        
+
         RegistroMapper registroMapper = new RegistroMapper();
         RespuestaMapper respuestaMapper = new RespuestaMapper();
         PreguntaMapper preguntaMapper = new PreguntaMapper();
@@ -44,13 +44,22 @@ public class RespuestaRegistroMapper implements IMapper {
         RegistroRespuestaDto registroRespuestaDto = (RegistroRespuestaDto) dto;
         RespuestaRegistro respuestaRegistro = new RespuestaRegistro();
         respuestaRegistro.setIdRegistroRespuesta(registroRespuestaDto.getId());
-        RegistroMapper registroMapper = new RegistroMapper();
-        respuestaRegistro.setIdRegistro((Registro) registroMapper.dtoToEntity(registroRespuestaDto.getRegistro()));
-        RespuestaMapper respuestaMapper = new RespuestaMapper();
-        respuestaRegistro.setIdRespuesta((Respuesta) respuestaMapper.dtoToEntity(registroRespuestaDto.getRespuesta()));
-        PreguntaMapper preguntaMapper = new PreguntaMapper();
-        respuestaRegistro.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(registroRespuestaDto.getPregunta()));
-        respuestaRegistro.setTextoOtro(registroRespuestaDto.getTexto());
+        if (registroRespuestaDto.getRegistro() != null) {
+            RegistroMapper registroMapper = new RegistroMapper();
+            respuestaRegistro.setIdRegistro((Registro) registroMapper.dtoToEntity(registroRespuestaDto.getRegistro()));
+        }
+        if (registroRespuestaDto.getRespuesta() != null) {
+            RespuestaMapper respuestaMapper = new RespuestaMapper();
+            respuestaRegistro.setIdRespuesta((Respuesta) respuestaMapper.dtoToEntity(registroRespuestaDto.getRespuesta()));
+        }
+        if (registroRespuestaDto.getPregunta() != null) {
+            PreguntaMapper preguntaMapper = new PreguntaMapper();
+            respuestaRegistro.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(registroRespuestaDto.getPregunta()));
+        }
+        if (!registroRespuestaDto.getTexto().isEmpty()) {
+            respuestaRegistro.setTextoOtro(registroRespuestaDto.getTexto());
+        }
+
         return respuestaRegistro;
     }
 
