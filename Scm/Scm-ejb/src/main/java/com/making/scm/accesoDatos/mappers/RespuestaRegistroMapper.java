@@ -56,7 +56,7 @@ public class RespuestaRegistroMapper implements IMapper {
             PreguntaMapper preguntaMapper = new PreguntaMapper();
             respuestaRegistro.setIdPregunta((Pregunta) preguntaMapper.dtoToEntity(registroRespuestaDto.getPregunta()));
         }
-        if (!registroRespuestaDto.getTexto().isEmpty()) {
+        if (registroRespuestaDto.getTexto() != null) {
             respuestaRegistro.setTextoOtro(registroRespuestaDto.getTexto());
         }
 

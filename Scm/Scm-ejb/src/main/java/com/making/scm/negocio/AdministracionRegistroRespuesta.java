@@ -30,7 +30,7 @@ public class AdministracionRegistroRespuesta {
         // if (registroRespuestaDto.getHashCode() != 0 && registroRespuestaDto.getHashCode() == registroRespuestaDto.hashCode()) {
         RespuestaRegistroMapper respuestaRegistroMapper = new RespuestaRegistroMapper();
         for (RegistroRespuestaDto registroRespuestaDto : registroRespuestaDtos) {
-            respuestaRegistroDal.create((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
+//            respuestaRegistroDal.create((RespuestaRegistro) respuestaRegistroMapper.dtoToEntity(registroRespuestaDto));
         }
 
      //   }
